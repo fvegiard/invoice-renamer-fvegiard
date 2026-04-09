@@ -134,19 +134,73 @@
 
     .result-item {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--r); padding: 10px 14px;
-      display: flex; align-items: flex-start; gap: 10px;
+      border-radius: var(--r); overflow: hidden;
       animation: slideUp .18s ease-out both;
     }
     @keyframes slideUp { from { opacity:0; transform:translateY(5px); } to { opacity:1; transform:none; } }
-    .result-item.ok    { border-color: rgba(52,211,153,.15); }
-    .result-item.error { border-color: rgba(248,113,113,.15); }
-    .result-icon  { font-size: 14px; line-height: 1.7; flex-shrink: 0; }
-    .result-body  { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
-    .result-original { font-family: var(--mono); font-size: 11px; color: var(--text-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .result-item.ok    { border-color: rgba(52,211,153,.2); }
+    .result-item.error { border-color: rgba(248,113,113,.2); }
+
+    /* ok item layout */
+    .result-ok-inner {
+      display: flex; align-items: stretch; gap: 0;
+    }
+    .result-thumb {
+      width: 72px; flex-shrink: 0; background: #fff;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; cursor: pointer;
+      border-right: 1px solid var(--border);
+    }
+    .result-thumb img { width: 100%; display: block; object-fit: cover; }
+    .result-thumb-placeholder {
+      width: 72px; height: 96px; background: var(--surface-hi);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; color: var(--text-dim);
+    }
+    .result-body  { flex: 1; min-width: 0; display: flex; flex-direction: column;
+                    gap: 6px; padding: 10px 14px; justify-content: center; }
+    .result-original { font-family: var(--mono); font-size: 10.5px; color: var(--text-dim);
+                       overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .result-arrow    { font-size: 10px; color: var(--text-dim); }
-    .result-renamed  { font-family: var(--mono); font-size: 11px; color: var(--success); font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .result-error-msg { font-size: 12px; color: var(--error); }
+
+    .result-title-row { display: flex; align-items: center; gap: 6px; }
+    .result-title-input {
+      font-family: var(--mono); font-size: 11px; color: var(--success);
+      background: transparent; border: 1px solid transparent;
+      border-radius: 4px; padding: 2px 5px; flex: 1; min-width: 0;
+      outline: none; transition: border-color .12s, background .12s;
+    }
+    .result-title-input:focus {
+      border-color: var(--accent); background: var(--surface-hi); color: var(--text);
+    }
+    .result-dl-btn {
+      font-family: var(--font); font-size: 11px; font-weight: 600;
+      background: var(--accent); color: #0c1220;
+      border: none; border-radius: 6px; padding: 4px 10px;
+      cursor: pointer; flex-shrink: 0; white-space: nowrap;
+      transition: opacity .12s;
+    }
+    .result-dl-btn:hover { opacity: .85; }
+
+    /* error item */
+    .result-error-inner {
+      display: flex; align-items: flex-start; gap: 10px; padding: 10px 14px;
+    }
+    .result-icon  { font-size: 14px; line-height: 1.7; flex-shrink: 0; }
+    .result-error-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+    .result-error-name { font-family: var(--mono); font-size: 11px; color: var(--text-dim);
+                         overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .result-error-msg  { font-size: 12px; color: var(--error); }
+
+    /* lightbox */
+    .lightbox {
+      position: fixed; inset: 0; background: rgba(0,0,0,.85);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 200; cursor: zoom-out;
+    }
+    .lightbox[hidden] { display: none; }
+    .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 6px;
+                    box-shadow: 0 0 60px rgba(0,0,0,.6); }
 
     /* ── History table ──────────────────────────── */
     .history-wrap { overflow-x: auto; border-radius: var(--r); border: 1px solid var(--border); }
@@ -330,6 +384,11 @@
 </section>
 </main>
 
+<!-- ── Lightbox aperçu PDF ──────────────────────────────────── -->
+<div class="lightbox" id="lightbox" hidden>
+  <img id="lightboxImg" src="" alt="Aperçu facture">
+</div>
+
 <!-- ── Modal: Ajouter / Modifier fournisseur ───────────────── -->
 <div class="modal-overlay" id="modal" hidden>
   <div class="modal">
@@ -423,77 +482,113 @@ clearBtn.addEventListener('click', () => {
 
 async function uploadFiles(files) {
   dropZone.classList.add('busy');
-  loadingTxt.textContent = `Traitement de ${files.length} fichier${files.length > 1 ? 's' : ''}…`;
   resultsSec.style.display = 'flex';
 
-  try {
-    // Convert PDFs to base64 for serverless processing
-    const b64Files = await Promise.all(files.map(f => new Promise(resolve => {
-      const reader = new FileReader();
-      reader.onload = () => resolve({ name: f.name, data: reader.result.split(',')[1] });
-      reader.readAsDataURL(f);
-    })));
+  // Process one at a time so the user sees results progressively
+  for (let i = 0; i < files.length; i++) {
+    const f = files[i];
+    loadingTxt.textContent = `Analyse IA… ${i + 1} / ${files.length}`;
 
-    const res  = await fetch('/rename', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ files: b64Files }),
-    });
-    const data = await res.json();
+    // Add a "pending" placeholder
+    const placeholder = document.createElement('div');
+    placeholder.className = 'result-item ok';
+    placeholder.innerHTML = `<div class="result-ok-inner">
+      <div class="result-thumb"><div class="result-thumb-placeholder">⏳</div></div>
+      <div class="result-body">
+        <div class="result-original">${esc(f.name)}</div>
+        <div class="result-arrow">↓</div>
+        <div class="result-title-row">
+          <input class="result-title-input" value="Analyse en cours…" disabled>
+        </div>
+      </div>
+    </div>`;
+    resultsList.prepend(placeholder);
 
-    data.forEach((r, i) => {
-      setTimeout(() => {
-        appendResult(r);
-        // Trigger browser download for each successful renamed PDF
-        if (r.status === 'ok' && r.data) {
-          const link    = document.createElement('a');
-          link.href     = `data:application/pdf;base64,${r.data}`;
-          link.download = r.renamed;
-          link.click();
-        }
-        // Record to history
-        if (r.status === 'ok') {
-          fetch('/api/history', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ original: r.original, renamed: r.renamed, vendor: r.vendor, invoiceNumber: r.invoiceNumber, date: r.date, status: 'ok' }),
-          }).catch(() => {});
-        }
-      }, i * 60);
-      sessionTotal++;
-      if (r.status === 'ok') sessionOk++;
-    });
-    loadStats();
-  } catch {
-    files.forEach((f, i) => {
-      setTimeout(() => appendResult({ original: f.name, status: 'error', message: 'Erreur réseau' }), i * 60);
-      sessionTotal++;
-    });
-  } finally {
-    dropZone.classList.remove('busy');
+    try {
+      const b64 = await new Promise(resolve => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.readAsDataURL(f);
+      });
+
+      const res  = await fetch('/rename', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ files: [{ name: f.name, data: b64 }] }),
+      });
+      const [r] = await res.json();
+
+      placeholder.replaceWith(buildResultCard(r));
+
+      if (r.status === 'ok') {
+        sessionOk++;
+        fetch('/api/history', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ original: r.original, renamed: r.renamed, vendor: r.vendor, invoiceNumber: r.invoiceNumber, date: r.date, status: 'ok' }),
+        }).catch(() => {});
+      }
+    } catch {
+      placeholder.replaceWith(buildResultCard({ original: f.name, status: 'error', message: 'Erreur réseau ou serveur.' }));
+    }
+
+    sessionTotal++;
   }
+
+  dropZone.classList.remove('busy');
+  loadingTxt.textContent = 'Traitement…';
+  loadStats();
 }
 
-function appendResult(r) {
+function buildResultCard(r) {
   const el = document.createElement('div');
   el.className = `result-item ${r.status}`;
+
   if (r.status === 'ok') {
-    el.innerHTML = `
-      <span class="result-icon">✅</span>
+    const thumbHtml = r.preview
+      ? `<img src="data:image/png;base64,${r.preview}" alt="aperçu" style="cursor:zoom-in">`
+      : `<div class="result-thumb-placeholder">📄</div>`;
+
+    el.innerHTML = `<div class="result-ok-inner">
+      <div class="result-thumb">${thumbHtml}</div>
       <div class="result-body">
         <div class="result-original">${esc(r.original)}</div>
         <div class="result-arrow">↓</div>
-        <div class="result-renamed">${esc(r.renamed)}</div>
-      </div>`;
+        <div class="result-title-row">
+          <input class="result-title-input" value="${esc(r.renamed)}" title="Cliquer pour modifier le nom">
+          <button class="result-dl-btn">⬇ Télécharger</button>
+        </div>
+      </div>
+    </div>`;
+
+    // Lightbox on thumbnail click
+    if (r.preview) {
+      el.querySelector('.result-thumb img').addEventListener('click', () => {
+        document.getElementById('lightboxImg').src = `data:image/png;base64,${r.preview}`;
+        document.getElementById('lightbox').hidden = false;
+      });
+    }
+
+    // Download with (possibly edited) title
+    el.querySelector('.result-dl-btn').addEventListener('click', () => {
+      const title = el.querySelector('.result-title-input').value.trim() || r.renamed;
+      const link  = document.createElement('a');
+      link.href     = `data:application/pdf;base64,${r.data}`;
+      link.download = title.endsWith('.pdf') ? title : title + '.pdf';
+      link.click();
+    });
+
   } else {
-    el.innerHTML = `
+    el.innerHTML = `<div class="result-error-inner">
       <span class="result-icon">❌</span>
-      <div class="result-body">
-        <div class="result-original">${esc(r.original)}</div>
+      <div class="result-error-body">
+        <div class="result-error-name">${esc(r.original)}</div>
         <div class="result-error-msg">${esc(r.message || 'Erreur inconnue')}</div>
-      </div>`;
+      </div>
+    </div>`;
   }
-  resultsList.prepend(el);
+
+  return el;
 }
 
 // ── History tab ──────────────────────────────────────────────
@@ -632,6 +727,14 @@ function fmtDate(iso) {
   return d.toLocaleDateString('fr-CA', { month:'short', day:'numeric' })
     + ' ' + d.toLocaleTimeString('fr-CA', { hour:'2-digit', minute:'2-digit' });
 }
+
+// ── Lightbox ─────────────────────────────────────────────────
+document.getElementById('lightbox').addEventListener('click', () => {
+  document.getElementById('lightbox').hidden = true;
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('lightbox').hidden = true;
+});
 
 // ── Init ─────────────────────────────────────────────────────
 loadStats();

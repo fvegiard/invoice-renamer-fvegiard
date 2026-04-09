@@ -6,6 +6,9 @@
   node_bundler = "esbuild"
   included_files = ["data/vendors.json"]
 
+[functions."rename"]
+  timeout = 26
+
 # Map API routes to Netlify Functions (no frontend changes needed)
 [[redirects]]
   from = "/rename"
