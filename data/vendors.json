@@ -148,10 +148,12 @@
     "name": "Bell",
     "textPatterns": [
       "BELL CANADA",
+      "BELL MOBILITE",
       "BELL MOBILITÉ"
     ],
     "filenamePatterns": [
-      "BELL"
+      "BELL",
+      "^4509"
     ]
   },
   {
@@ -214,9 +216,13 @@
     "id": "bmn-mecanique-generale-2021",
     "name": "BMN Mécanique générale 2021",
     "textPatterns": [
-      "BMN MECANIQUE GENERALE 2021"
+      "BMN",
+      "MECANIQUE GENERALE BMN",
+      "BMN MECANIQUE"
     ],
-    "filenamePatterns": []
+    "filenamePatterns": [
+      "^2[0-9]{3}$"
+    ]
   },
   {
     "id": "boisclair-et-fils",
@@ -238,9 +244,13 @@
     "id": "br-electrique",
     "name": "BR Electrique",
     "textPatterns": [
-      "BR ELECTRIQUE"
+      "GROUPE BR",
+      "BR ELECTRIQUE",
+      "BR ÉLECTRIQUE"
     ],
-    "filenamePatterns": []
+    "filenamePatterns": [
+      "^BE-[0-9]+"
+    ]
   },
   {
     "id": "br-plomberie",
@@ -392,7 +402,8 @@
     "id": "distributeck",
     "name": "Distributeck",
     "textPatterns": [
-      "DISTRIBUTECK"
+      "DISTRIBUTECK",
+      "DISTRIBUTEK"
     ],
     "filenamePatterns": []
   },
@@ -416,9 +427,11 @@
     "id": "drumco-energie",
     "name": "Drumco Energie",
     "textPatterns": [
-      "DRUMCO ENERGIE"
+      "DRUMCO"
     ],
-    "filenamePatterns": []
+    "filenamePatterns": [
+      "DRUMCO"
+    ]
   },
   {
     "id": "dubo",
@@ -547,7 +560,8 @@
     "id": "first-nations-electric",
     "name": "First nations electric",
     "textPatterns": [
-      "FIRST NATIONS ELECTRIC"
+      "FIRST NATIONS ELECTRIC",
+      "FIRST NATION"
     ],
     "filenamePatterns": []
   },
@@ -563,9 +577,11 @@
     "id": "forage-expert-quebec",
     "name": "Forage Expert Québec",
     "textPatterns": [
-      "FORAGE EXPERT QUEBEC"
+      "FORAGE EXPERT"
     ],
-    "filenamePatterns": []
+    "filenamePatterns": [
+      "^0[0-9]{5}$"
+    ]
   },
   {
     "id": "fourniture-de-bureau-denis",
@@ -581,7 +597,10 @@
     "textPatterns": [
       "FRANKLIN EMPIRE"
     ],
-    "filenamePatterns": []
+    "filenamePatterns": [
+      "^I[0-9]+",
+      "^CN[0-9]+"
+    ]
   },
   {
     "id": "fransyl",
@@ -675,7 +694,8 @@
     "id": "groupe-sip",
     "name": "Groupe SIP",
     "textPatterns": [
-      "GROUPE SIP"
+      "GROUPE SIP",
+      "SITE INTEGRATION PLUS"
     ],
     "filenamePatterns": []
   },
@@ -691,7 +711,8 @@
     "id": "guerin-maitre-electricien",
     "name": "Guerin Maitre Electricien",
     "textPatterns": [
-      "GUERIN MAITRE ELECTRICIEN"
+      "GUERIN MAITRE ELECTRICIEN",
+      "GUÉRIN MAITRE ÉLECTRICIEN"
     ],
     "filenamePatterns": []
   },
@@ -699,9 +720,12 @@
     "id": "guillevin",
     "name": "Guillevin",
     "textPatterns": [
-      "GUILLEVIN"
+      "GUILLEVIN",
+      "GUILLEVIN INTERNATIONAL"
     ],
-    "filenamePatterns": []
+    "filenamePatterns": [
+      "GUILLEVIN"
+    ]
   },
   {
     "id": "h-milot",
@@ -723,9 +747,14 @@
     "id": "harnois-energies",
     "name": "Harnois energies",
     "textPatterns": [
-      "HARNOIS ENERGIES"
+      "HARNOIS ENERGIES",
+      "HARNOIS ÉNERGIES",
+      "HARNOIS"
     ],
-    "filenamePatterns": []
+    "filenamePatterns": [
+      "^1043",
+      "^1066"
+    ]
   },
   {
     "id": "hertz",
@@ -739,9 +768,12 @@
     "id": "higgins-smith-ti-inc",
     "name": "Higgins-Smith TI inc",
     "textPatterns": [
-      "HIGGINS SMITH TI INC"
+      "HIGGINS-SMITH",
+      "HIGGINSSMITH"
     ],
-    "filenamePatterns": []
+    "filenamePatterns": [
+      "^1[45][0-9]{3}$"
+    ]
   },
   {
     "id": "higginssmith",
@@ -798,9 +830,12 @@
     "id": "j-spec",
     "name": "J-Spec",
     "textPatterns": [
+      "J-SPEC",
       "J SPEC"
     ],
-    "filenamePatterns": []
+    "filenamePatterns": [
+      "^9002[0-9]"
+    ]
   },
   {
     "id": "jean-claude-savoie",
@@ -849,9 +884,14 @@
     "id": "le-geant-du-conteneur-e360s-9386-0120-quebec-inc",
     "name": "le geant du conteneur E360S-9386-0120 Québec inc",
     "textPatterns": [
-      "LE GEANT DU CONTENEUR E360S 9386 0120 QUEBEC INC"
+      "E360S",
+      "LE GEANT DU CONTENEUR",
+      "9386-0120"
     ],
-    "filenamePatterns": []
+    "filenamePatterns": [
+      "^1060022-",
+      "^53[0-9]{4}"
+    ]
   },
   {
     "id": "le-groupe-roger-faguy-inc",
@@ -982,7 +1022,9 @@
     "textPatterns": [
       "LUMEN"
     ],
-    "filenamePatterns": []
+    "filenamePatterns": [
+      "^3[0-9]{7,9}"
+    ]
   },
   {
     "id": "luminaire-authentik",
@@ -1076,9 +1118,11 @@
     "id": "moquin-amyot-s-e-n-c-r-l",
     "name": "Moquin Amyot S.E.N.C.R.L",
     "textPatterns": [
-      "MOQUIN AMYOT S E N C R L"
+      "MOQUIN AMYOT"
     ],
-    "filenamePatterns": []
+    "filenamePatterns": [
+      "^24[0-9]{5}$"
+    ]
   },
   {
     "id": "noramco",
@@ -1156,7 +1200,10 @@
     "id": "pieces-d-autos-o-fontaine",
     "name": "Pieces D'Autos O. Fontaine",
     "textPatterns": [
-      "PIECES D AUTOS O FONTAINE"
+      "PIECES D'AUTO",
+      "O. FONTAINE",
+      "O.FONTAINE",
+      "FONTAINE"
     ],
     "filenamePatterns": []
   },
@@ -1228,7 +1275,8 @@
     "id": "quincaillerie-demers",
     "name": "Quincaillerie Demers",
     "textPatterns": [
-      "QUINCAILLERIE DEMERS"
+      "QUINCAILLERIE DEMERS",
+      "DEMERS"
     ],
     "filenamePatterns": []
   },
@@ -1262,7 +1310,9 @@
     "textPatterns": [
       "RONA"
     ],
-    "filenamePatterns": []
+    "filenamePatterns": [
+      "RONA"
+    ]
   },
   {
     "id": "sanivac",
@@ -1368,7 +1418,9 @@
     "textPatterns": [
       "STANEX"
     ],
-    "filenamePatterns": []
+    "filenamePatterns": [
+      "^15[0-9]{4}-"
+    ]
   },
   {
     "id": "stella-jones-poteau-bois",
@@ -1478,9 +1530,12 @@
     "id": "united-rental",
     "name": "United Rental",
     "textPatterns": [
+      "UNITED RENTALS",
       "UNITED RENTAL"
     ],
-    "filenamePatterns": []
+    "filenamePatterns": [
+      "ATTACHMENT_"
+    ]
   },
   {
     "id": "united-rentals",
@@ -1595,8 +1650,13 @@
     "id": "yves-guerin-maitre-electricien",
     "name": "Yves Guérin Maitre électricien",
     "textPatterns": [
-      "YVES GUERIN MAITRE ELECTRICIEN"
+      "YVES GUERIN",
+      "YVES GUÉRIN",
+      "GUERIN ET FILS",
+      "GUÉRIN ET FILS"
     ],
-    "filenamePatterns": []
+    "filenamePatterns": [
+      "^Facture #[0-9]+"
+    ]
   }
 ]
