@@ -1,62 +1,1602 @@
 [
   {
-    "id": "wesco",
-    "name": "Wesco",
-    "textPatterns": ["WESCO"],
-    "filenamePatterns": ["WESCO", "^2216682"]
+    "id": "11038591-sos-equipement",
+    "name": "11038591 - SOS Équipement",
+    "textPatterns": [
+      "11038591 SOS EQUIPEMENT"
+    ],
+    "filenamePatterns": []
   },
   {
-    "id": "lettra-trim",
-    "name": "Lettra Trim",
-    "textPatterns": ["LETTRA TRIM", "LETTRATRIM"],
-    "filenamePatterns": ["LETTRA_TRIM"]
+    "id": "9139-1896-qc-inc-dlt",
+    "name": "9139-1896 QC inc. - DLT",
+    "textPatterns": [
+      "9139 1896 QC INC DLT"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "9160-3886-quebec-inc-logic-or",
+    "name": "9160-3886 Quebec Inc - Logic-or",
+    "textPatterns": [
+      "9160 3886 QUEBEC INC LOGIC OR"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "9262-2406-qc-inc-protection-sismique-2000",
+    "name": "9262-2406 Qc inc. (Protection Sismique 2000)",
+    "textPatterns": [
+      "9262 2406 QC INC PROTECTION SISMIQUE 2000"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "9395-6621-amaro",
+    "name": "9395-6621 - Amaro",
+    "textPatterns": [
+      "9395 6621 AMARO"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "a25",
+    "name": "A25",
+    "textPatterns": [
+      "A25"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "acceo-division-estimation",
+    "name": "Acceo division estimation",
+    "textPatterns": [
+      "ACCEO DIVISION ESTIMATION"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "acceo-solutions",
+    "name": "Acceo Solutions",
+    "textPatterns": [
+      "ACCEO SOLUTIONS"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "acq",
+    "name": "ACQ",
+    "textPatterns": [
+      "ACQ"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "alarme-nordic",
+    "name": "Alarme Nordic",
+    "textPatterns": [
+      "ALARME NORDIC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "amaro-30794",
+    "name": "Amaro (30794)",
+    "textPatterns": [
+      "AMARO"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "ancrage-canadien",
+    "name": "Ancrage Canadien",
+    "textPatterns": [
+      "ANCRAGE CANADIEN"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "apchq",
+    "name": "APCHQ",
+    "textPatterns": [
+      "APCHQ"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "arani",
+    "name": "Arani",
+    "textPatterns": [
+      "ARANI"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "ats-conteneur",
+    "name": "ATS Conteneur",
+    "textPatterns": [
+      "ATS CONTENEUR"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "au-courant-luminaires",
+    "name": "Au courant Luminaires",
+    "textPatterns": [
+      "AU COURANT LUMINAIRES"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "aubin-st-pierre",
+    "name": "Aubin & St-pierre",
+    "textPatterns": [
+      "AUBIN ST PIERRE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "avetta",
+    "name": "Avetta",
+    "textPatterns": [
+      "AVETTA"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "bell",
+    "name": "Bell",
+    "textPatterns": [
+      "BELL CANADA",
+      "BELL MOBILITÉ"
+    ],
+    "filenamePatterns": [
+      "BELL"
+    ]
+  },
+  {
+    "id": "bell-292044816",
+    "name": "Bell - 292044816",
+    "textPatterns": [
+      "BELL"
+    ],
+    "filenamePatterns": [
+      "292044816"
+    ]
+  },
+  {
+    "id": "bell-4509224000-773",
+    "name": "Bell - 4509224000(773)",
+    "textPatterns": [
+      "BELL 4509224000"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "bell-508193889",
+    "name": "Bell - 508193889",
+    "textPatterns": [
+      "BELL"
+    ],
+    "filenamePatterns": [
+      "508193889"
+    ]
+  },
+  {
+    "id": "bell-555023403",
+    "name": "Bell - 555023403",
+    "textPatterns": [
+      "BELL"
+    ],
+    "filenamePatterns": [
+      "555023403"
+    ]
+  },
+  {
+    "id": "bell-8455200510139248",
+    "name": "Bell - 8455200510139248",
+    "textPatterns": [
+      "BELL"
+    ],
+    "filenamePatterns": [
+      "8455200510139248"
+    ]
+  },
+  {
+    "id": "bell-mobilite",
+    "name": "Bell Mobilité",
+    "textPatterns": [
+      "BELL MOBILITE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "bmn-mecanique-generale-2021",
+    "name": "BMN Mécanique générale 2021",
+    "textPatterns": [
+      "BMN MECANIQUE GENERALE 2021"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "boisclair-et-fils",
+    "name": "Boisclair et Fils",
+    "textPatterns": [
+      "BOISCLAIR ET FILS"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "br-charpente",
+    "name": "BR Charpente",
+    "textPatterns": [
+      "BR CHARPENTE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "br-electrique",
+    "name": "BR Electrique",
+    "textPatterns": [
+      "BR ELECTRIQUE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "br-plomberie",
+    "name": "BR Plomberie",
+    "textPatterns": [
+      "BR PLOMBERIE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "br-revetement-inc",
+    "name": "BR Revêtement Inc",
+    "textPatterns": [
+      "BR REVETEMENT INC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "brandt-group",
+    "name": "Brandt Group",
+    "textPatterns": [
+      "BRANDT GROUP"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "bsdq",
+    "name": "BSDQ",
+    "textPatterns": [
+      "BSDQ"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "camions-lussier-lussicam",
+    "name": "Camions Lussier Lussicam",
+    "textPatterns": [
+      "CAMIONS LUSSIER LUSSICAM"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "ccq",
+    "name": "CCQ",
+    "textPatterns": [
+      "COMMISSION DE LA CONSTRUCTION"
+    ],
+    "filenamePatterns": [
+      "CCQ"
+    ]
+  },
+  {
+    "id": "cerco-cable",
+    "name": "Cerco Cable",
+    "textPatterns": [
+      "CERCO CABLE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "chambre-de-commerce",
+    "name": "Chambre de commerce",
+    "textPatterns": [
+      "CHAMBRE DE COMMERCE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "chapiteau-as",
+    "name": "Chapiteau AS",
+    "textPatterns": [
+      "CHAPITEAU AS"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "chubb-fire",
+    "name": "Chubb Fire",
+    "textPatterns": [
+      "CHUBB FIRE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "cisolif",
+    "name": "Cisolif",
+    "textPatterns": [
+      "CISOLIF"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "cloture-actuel",
+    "name": "Cloture Actuel",
+    "textPatterns": [
+      "CLOTURE ACTUEL"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "club-de-golf-vallee-du-richelieu",
+    "name": "Club de golf Vallée du Richelieu",
+    "textPatterns": [
+      "CLUB DE GOLF VALLEE DU RICHELIEU"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "construction-joca",
+    "name": "Construction Joca",
+    "textPatterns": [
+      "CONSTRUCTION JOCA"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "construction-nhb",
+    "name": "Construction NHB",
+    "textPatterns": [
+      "CONSTRUCTION NHB"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "copicom",
+    "name": "Copicom",
+    "textPatterns": [
+      "COPICOM"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "decorome",
+    "name": "Decorome",
+    "textPatterns": [
+      "DECOROME"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "detection-snj-scan",
+    "name": "Detection SNJ Scan",
+    "textPatterns": [
+      "DETECTION SNJ SCAN"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "distributeck",
+    "name": "Distributeck",
+    "textPatterns": [
+      "DISTRIBUTECK"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "dlt",
+    "name": "Dlt",
+    "textPatterns": [
+      "DLT"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "domaine-girouard",
+    "name": "Domaine Girouard",
+    "textPatterns": [
+      "DOMAINE GIROUARD"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "drumco-energie",
+    "name": "Drumco Energie",
+    "textPatterns": [
+      "DRUMCO ENERGIE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "dubo",
+    "name": "Dubo",
+    "textPatterns": [
+      "DUBO"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "dupont-ford",
+    "name": "Dupont Ford",
+    "textPatterns": [
+      "DUPONT FORD"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "eclair-plus",
+    "name": "Éclair Plus",
+    "textPatterns": [
+      "ECLAIR PLUS"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "edouard-beauchene",
+    "name": "Edouard Beauchene",
+    "textPatterns": [
+      "EDOUARD BEAUCHENE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "edp-mecanique-diesel",
+    "name": "EDP Mécanique Diesel",
+    "textPatterns": [
+      "EDP MECANIQUE DIESEL"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "electrimat",
+    "name": "Electrimat",
+    "textPatterns": [
+      "ELECTRIMAT"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "electromega",
+    "name": "Electromega",
+    "textPatterns": [
+      "ELECTROMEGA"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "energir",
+    "name": "Energir",
+    "textPatterns": [
+      "ENERGIR",
+      "GAZ MÉTRO"
+    ],
+    "filenamePatterns": [
+      "ENERGIR"
+    ]
+  },
+  {
+    "id": "epg-laval-fusionex",
+    "name": "EPG Laval - Fusionex",
+    "textPatterns": [
+      "EPG LAVAL FUSIONEX"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "equans-service",
+    "name": "Equans service",
+    "textPatterns": [
+      "EQUANS SERVICE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "eric-lafontaine",
+    "name": "Éric Lafontaine",
+    "textPatterns": [
+      "ERIC LAFONTAINE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "excavation-national-inc",
+    "name": "Excavation National Inc",
+    "textPatterns": [
+      "EXCAVATION NATIONAL INC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "excellence-hydraulique",
+    "name": "Excellence Hydraulique",
+    "textPatterns": [
+      "EXCELLENCE HYDRAULIQUE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "excellence-peterbilt",
+    "name": "Excellence Peterbilt",
+    "textPatterns": [
+      "EXCELLENCE PETERBILT"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "farid-rafiz",
+    "name": "Farid Rafiz",
+    "textPatterns": [
+      "FARID RAFIZ"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "first-nations-electric",
+    "name": "First nations electric",
+    "textPatterns": [
+      "FIRST NATIONS ELECTRIC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "fonds-d-investissement-immobilier-innoval",
+    "name": "Fonds d'Investissement Immobilier Innoval",
+    "textPatterns": [
+      "FONDS D INVESTISSEMENT IMMOBILIER INNOVAL"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "forage-expert-quebec",
+    "name": "Forage Expert Québec",
+    "textPatterns": [
+      "FORAGE EXPERT QUEBEC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "fourniture-de-bureau-denis",
+    "name": "Fourniture de bureau denis",
+    "textPatterns": [
+      "FOURNITURE DE BUREAU DENIS"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "franklin-empire",
+    "name": "Franklin Empire",
+    "textPatterns": [
+      "FRANKLIN EMPIRE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "fransyl",
+    "name": "Fransyl",
+    "textPatterns": [
+      "FRANSYL"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "fusionex",
+    "name": "Fusionex",
+    "textPatterns": [
+      "FUSIONEX"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "gabrielle-leblond",
+    "name": "Gabrielle Leblond",
+    "textPatterns": [
+      "GABRIELLE LEBLOND"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "garage-claude-dallaire-fils-inc",
+    "name": "Garage Claude Dallaire & fils inc",
+    "textPatterns": [
+      "GARAGE CLAUDE DALLAIRE FILS INC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "garage-lague",
+    "name": "Garage Lague",
+    "textPatterns": [
+      "GARAGE LAGUE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "gareau-metivier",
+    "name": "Gareau Metivier",
+    "textPatterns": [
+      "GAREAU METIVIER"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "gazi-bleu",
+    "name": "Gazi bleu",
+    "textPatterns": [
+      "GAZI BLEU"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "gestion-canaan",
+    "name": "Gestion Canaan",
+    "textPatterns": [
+      "GESTION CANAAN"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "gestionjc",
+    "name": "GestionJC",
+    "textPatterns": [
+      "GESTIONJC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "groupe-echo",
+    "name": "Groupe Echo",
+    "textPatterns": [
+      "GROUPE ECHO"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "groupe-lou-tec",
+    "name": "Groupe Lou-tec",
+    "textPatterns": [
+      "GROUPE LOU TEC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "groupe-sip",
+    "name": "Groupe SIP",
+    "textPatterns": [
+      "GROUPE SIP"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "groupe-sourcinc",
+    "name": "Groupe Sourcinc",
+    "textPatterns": [
+      "GROUPE SOURCINC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "guerin-maitre-electricien",
+    "name": "Guerin Maitre Electricien",
+    "textPatterns": [
+      "GUERIN MAITRE ELECTRICIEN"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "guillevin",
+    "name": "Guillevin",
+    "textPatterns": [
+      "GUILLEVIN"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "h-milot",
+    "name": "H. Milot",
+    "textPatterns": [
+      "H MILOT"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "hamster",
+    "name": "Hamster",
+    "textPatterns": [
+      "HAMSTER"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "harnois-energies",
+    "name": "Harnois energies",
+    "textPatterns": [
+      "HARNOIS ENERGIES"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "hertz",
+    "name": "Hertz",
+    "textPatterns": [
+      "HERTZ"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "higgins-smith-ti-inc",
+    "name": "Higgins-Smith TI inc",
+    "textPatterns": [
+      "HIGGINS SMITH TI INC"
+    ],
+    "filenamePatterns": []
   },
   {
     "id": "higginssmith",
     "name": "HigginsSmith TI inc",
-    "textPatterns": ["HIGGINSSMITH"],
-    "filenamePatterns": ["HIGGINSSMITH", "HIGGINS"]
+    "textPatterns": [
+      "HIGGINSSMITH"
+    ],
+    "filenamePatterns": [
+      "HIGGINSSMITH",
+      "HIGGINS"
+    ]
   },
   {
-    "id": "wjl",
-    "name": "Service d'entretien WJL inc",
-    "textPatterns": ["WJL"],
-    "filenamePatterns": ["WJL"]
+    "id": "hilti",
+    "name": "Hilti",
+    "textPatterns": [
+      "HILTI"
+    ],
+    "filenamePatterns": []
   },
   {
-    "id": "guillevin",
-    "name": "Guillevin International Co",
-    "textPatterns": ["GUILLEVIN"],
+    "id": "hydraulique-pat-2012",
+    "name": "Hydraulique Pat 2012",
+    "textPatterns": [
+      "HYDRAULIQUE PAT 2012"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "hydro-quebec",
+    "name": "Hydro Québec",
+    "textPatterns": [
+      "HYDRO QUEBEC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "imprimerie-multipress-inc",
+    "name": "Imprimerie Multipress inc",
+    "textPatterns": [
+      "IMPRIMERIE MULTIPRESS INC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "industries-quebec-bolts",
+    "name": "Industries quebec bolts",
+    "textPatterns": [
+      "INDUSTRIES QUEBEC BOLTS"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "j-spec",
+    "name": "J-Spec",
+    "textPatterns": [
+      "J SPEC"
+    ],
     "filenamePatterns": []
   },
   {
     "id": "jean-claude-savoie",
     "name": "Jean-Claude Savoie",
-    "textPatterns": ["JEAN-CLAUDE"],
-    "filenamePatterns": ["JEAN-CLAUDE", "^FACT21"]
+    "textPatterns": [
+      "JEAN-CLAUDE"
+    ],
+    "filenamePatterns": [
+      "JEAN-CLAUDE",
+      "^FACT21"
+    ]
+  },
+  {
+    "id": "jordan-cooper-paiva",
+    "name": "Jordan Cooper-Paiva",
+    "textPatterns": [
+      "JORDAN COOPER PAIVA"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "kamio",
+    "name": "Kamio",
+    "textPatterns": [
+      "KAMIO"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "koul-traiteur",
+    "name": "Koul Traiteur",
+    "textPatterns": [
+      "KOUL TRAITEUR"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "la-compagnie-d-eclairage-union",
+    "name": "La compagnie d'éclairage Union",
+    "textPatterns": [
+      "LA COMPAGNIE D ECLAIRAGE UNION"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "le-geant-du-conteneur-e360s-9386-0120-quebec-inc",
+    "name": "le geant du conteneur E360S-9386-0120 Québec inc",
+    "textPatterns": [
+      "LE GEANT DU CONTENEUR E360S 9386 0120 QUEBEC INC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "le-groupe-roger-faguy-inc",
+    "name": "le groupe roger Faguy inc",
+    "textPatterns": [
+      "LE GROUPE ROGER FAGUY INC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "lebeau-vitre-d-auto",
+    "name": "Lebeau Vitre d'auto",
+    "textPatterns": [
+      "LEBEAU VITRE D AUTO"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "leger-palans-outillages",
+    "name": "Leger Palans & outillages",
+    "textPatterns": [
+      "LEGER PALANS OUTILLAGES"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "lenmark",
+    "name": "Lenmark",
+    "textPatterns": [
+      "LENMARK"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "les-barrieres-spectron",
+    "name": "Les barrières spectron",
+    "textPatterns": [
+      "LES BARRIERES SPECTRON"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "les-entreprises-chaser-electro",
+    "name": "Les Entreprises Chaser Electro",
+    "textPatterns": [
+      "LES ENTREPRISES CHASER ELECTRO"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "les-grues-n-rik",
+    "name": "les Grues N'RIK",
+    "textPatterns": [
+      "LES GRUES N RIK"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "les-industries-quebec-bolts",
+    "name": "les Industries quebec bolts",
+    "textPatterns": [
+      "LES INDUSTRIES QUEBEC BOLTS"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "les-produits-sismiques-inc",
+    "name": "Les Produits Sismiques inc",
+    "textPatterns": [
+      "LES PRODUITS SISMIQUES INC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "lettra-trim",
+    "name": "Lettra Trim",
+    "textPatterns": [
+      "LETTRA TRIM",
+      "LETTRATRIM"
+    ],
+    "filenamePatterns": [
+      "LETTRA_TRIM"
+    ]
+  },
+  {
+    "id": "linde-canada",
+    "name": "Linde Canada",
+    "textPatterns": [
+      "LINDE CANADA"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "location-d-outils-simplex",
+    "name": "Location d'outils simplex",
+    "textPatterns": [
+      "LOCATION D OUTILS SIMPLEX"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "location-sunbelt",
+    "name": "Location Sunbelt",
+    "textPatterns": [
+      "LOCATION SUNBELT"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "location-thomas",
+    "name": "Location thomas",
+    "textPatterns": [
+      "LOCATION THOMAS"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "loue-froid",
+    "name": "Loue-Froid",
+    "textPatterns": [
+      "LOUE FROID"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "lumen",
+    "name": "Lumen",
+    "textPatterns": [
+      "LUMEN"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "luminaire-authentik",
+    "name": "Luminaire Authentik",
+    "textPatterns": [
+      "LUMINAIRE AUTHENTIK"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "mapec",
+    "name": "Mapec",
+    "textPatterns": [
+      "MAPEC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "matrec",
+    "name": "Matrec",
+    "textPatterns": [
+      "MATREC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "mcm-distribution",
+    "name": "MCM Distribution",
+    "textPatterns": [
+      "MCM DISTRIBUTION"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "mdl-energie",
+    "name": "MDL Énergie",
+    "textPatterns": [
+      "MDL ENERGIE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "mediaweb-quebec",
+    "name": "Mediaweb Quebec",
+    "textPatterns": [
+      "MEDIAWEB QUEBEC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "mercedes-benz",
+    "name": "Mercedes benz",
+    "textPatterns": [
+      "MERCEDES BENZ"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "metal-pole-lite",
+    "name": "Métal pole lite",
+    "textPatterns": [
+      "METAL POLE LITE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "michelin",
+    "name": "Michelin",
+    "textPatterns": [
+      "MICHELIN"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "midas",
+    "name": "Midas",
+    "textPatterns": [
+      "MIDAS"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "montreal-talent-angency",
+    "name": "Montreal Talent Angency",
+    "textPatterns": [
+      "MONTREAL TALENT ANGENCY"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "moquin-amyot-s-e-n-c-r-l",
+    "name": "Moquin Amyot S.E.N.C.R.L",
+    "textPatterns": [
+      "MOQUIN AMYOT S E N C R L"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "noramco",
+    "name": "Noramco",
+    "textPatterns": [
+      "NORAMCO"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "outillage-placide-mathieu",
+    "name": "Outillage Placide Mathieu",
+    "textPatterns": [
+      "OUTILLAGE PLACIDE MATHIEU"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "outlis-pierre-berger",
+    "name": "Outlis Pierre Berger",
+    "textPatterns": [
+      "OUTLIS PIERRE BERGER"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "p-e-boivert-auto-ltee",
+    "name": "P.E. Boivert Auto Ltée",
+    "textPatterns": [
+      "P E BOIVERT AUTO LTEE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "p-e-s-canada",
+    "name": "P.E.S Canada",
+    "textPatterns": [
+      "P E S CANADA"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "paladin-technologies",
+    "name": "Paladin Technologies",
+    "textPatterns": [
+      "PALADIN TECHNOLOGIES"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "pascalex",
+    "name": "Pascalex",
+    "textPatterns": [
+      "PASCALEX"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "paul-boyer-avocat",
+    "name": "Paul Boyer , Avocat",
+    "textPatterns": [
+      "PAUL BOYER AVOCAT"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "pelomix",
+    "name": "Pélomix",
+    "textPatterns": [
+      "PELOMIX"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "pieces-d-autos-o-fontaine",
+    "name": "Pieces D'Autos O. Fontaine",
+    "textPatterns": [
+      "PIECES D AUTOS O FONTAINE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "pierre-boily-electrique-inc",
+    "name": "Pierre Boily Électrique Inc",
+    "textPatterns": [
+      "PIERRE BOILY ELECTRIQUE INC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "pitney-bowes-works",
+    "name": "Pitney Bowes-Works",
+    "textPatterns": [
+      "PITNEY BOWES WORKS"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "planete-courrier-inc",
+    "name": "Planete Courrier Inc",
+    "textPatterns": [
+      "PLANETE COURRIER INC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "polaris-capital-humain",
+    "name": "Polaris Capital Humain",
+    "textPatterns": [
+      "POLARIS CAPITAL HUMAIN"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "propulsion",
+    "name": "Propulsion",
+    "textPatterns": [
+      "PROPULSION"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "proteck-securite",
+    "name": "Proteck securité",
+    "textPatterns": [
+      "PROTECK SECURITE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "protection-sismique",
+    "name": "Protection Sismique",
+    "textPatterns": [
+      "PROTECTION SISMIQUE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "purolator",
+    "name": "Purolator",
+    "textPatterns": [
+      "PUROLATOR"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "quincaillerie-demers",
+    "name": "Quincaillerie Demers",
+    "textPatterns": [
+      "QUINCAILLERIE DEMERS"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "remorquage-groupe-laberge-inc",
+    "name": "Remorquage Groupe Laberge inc",
+    "textPatterns": [
+      "REMORQUAGE GROUPE LABERGE INC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "reparalift",
+    "name": "Réparalift",
+    "textPatterns": [
+      "REPARALIFT"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "rg-technilab",
+    "name": "Rg Technilab",
+    "textPatterns": [
+      "RG TECHNILAB"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "rona",
+    "name": "Rona",
+    "textPatterns": [
+      "RONA"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "sanivac",
+    "name": "Sanivac",
+    "textPatterns": [
+      "SANIVAC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "securite-sirois",
+    "name": "Sécurité Sirois",
+    "textPatterns": [
+      "SECURITE SIROIS"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "serrurerie-longueuil",
+    "name": "Serrurerie Longueuil",
+    "textPatterns": [
+      "SERRURERIE LONGUEUIL"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "wjl",
+    "name": "Service d'entretien WJL inc",
+    "textPatterns": [
+      "WJL"
+    ],
+    "filenamePatterns": [
+      "WJL"
+    ]
+  },
+  {
+    "id": "service-entretien-wjl-inc",
+    "name": "Service entretien WJL inc",
+    "textPatterns": [
+      "SERVICE ENTRETIEN WJL INC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "service-matrec",
+    "name": "Service Matrec",
+    "textPatterns": [
+      "SERVICE MATREC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "services-paysagers-dominique-filion",
+    "name": "Services paysagers Dominique Filion",
+    "textPatterns": [
+      "SERVICES PAYSAGERS DOMINIQUE FILION"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "sevall-expert-conseils",
+    "name": "Sevall Expert conseils",
+    "textPatterns": [
+      "SEVALL EXPERT CONSEILS"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "siemens",
+    "name": "Siemens",
+    "textPatterns": [
+      "SIEMENS"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "signalisation-prospere",
+    "name": "Signalisation Prospère",
+    "textPatterns": [
+      "SIGNALISATION PROSPERE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "soft-db",
+    "name": "SOFT DB",
+    "textPatterns": [
+      "SOFT DB"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "standard-fire-safety",
+    "name": "Standard Fire Safety",
+    "textPatterns": [
+      "STANDARD FIRE SAFETY"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "stanex",
+    "name": "Stanex",
+    "textPatterns": [
+      "STANEX"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "stella-jones-poteau-bois",
+    "name": "Stella Jones (poteau bois)",
+    "textPatterns": [
+      "STELLA JONES POTEAU BOIS"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "subaquatique",
+    "name": "Subaquatique",
+    "textPatterns": [
+      "SUBAQUATIQUE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "synex-deslauriers",
+    "name": "Synex Deslauriers",
+    "textPatterns": [
+      "SYNEX DESLAURIERS"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "technologie-lan-connect",
+    "name": "Technologie Lan connect",
+    "textPatterns": [
+      "TECHNOLOGIE LAN CONNECT"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "telmatik",
+    "name": "Telmatik",
+    "textPatterns": [
+      "TELMATIK"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "tradelco",
+    "name": "Tradelco",
+    "textPatterns": [
+      "TRADELCO"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "transport-kmc",
+    "name": "Transport KMC",
+    "textPatterns": [
+      "TRANSPORT KMC"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "troy",
+    "name": "Troy",
+    "textPatterns": [
+      "TROY"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "tungstene-luminaires-creatifs",
+    "name": "Tungstene Luminaires Créatifs",
+    "textPatterns": [
+      "TUNGSTENE LUMINAIRES CREATIFS"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "u2btelecom",
+    "name": "U2btelecom",
+    "textPatterns": [
+      "U2BTELECOM"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "uline",
+    "name": "Uline",
+    "textPatterns": [
+      "ULINE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "uniag-cooperative",
+    "name": "UNIAG COOPÉRATIVE",
+    "textPatterns": [
+      "UNIAG COOPERATIVE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "unigypse",
+    "name": "Unigypse",
+    "textPatterns": [
+      "UNIGYPSE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "united-rental",
+    "name": "United Rental",
+    "textPatterns": [
+      "UNITED RENTAL"
+    ],
+    "filenamePatterns": []
   },
   {
     "id": "united-rentals",
     "name": "United Rentals",
-    "textPatterns": ["UNITED RENTALS"],
-    "filenamePatterns": ["ATTACHMENT_"]
+    "textPatterns": [
+      "UNITED RENTALS"
+    ],
+    "filenamePatterns": [
+      "ATTACHMENT_"
+    ]
   },
   {
-    "id": "bell",
-    "name": "Bell",
-    "textPatterns": ["BELL CANADA", "BELL MOBILITÉ"],
-    "filenamePatterns": ["BELL"]
+    "id": "up-equip",
+    "name": "Up equip",
+    "textPatterns": [
+      "UP EQUIP"
+    ],
+    "filenamePatterns": []
   },
   {
-    "id": "energir",
-    "name": "Energir",
-    "textPatterns": ["ENERGIR", "GAZ MÉTRO"],
-    "filenamePatterns": ["ENERGIR"]
+    "id": "urbex",
+    "name": "Urbex",
+    "textPatterns": [
+      "URBEX"
+    ],
+    "filenamePatterns": []
   },
   {
-    "id": "ccq",
-    "name": "CCQ",
-    "textPatterns": ["COMMISSION DE LA CONSTRUCTION"],
-    "filenamePatterns": ["CCQ"]
+    "id": "valet-du-pneu-2015",
+    "name": "Valet du pneu 2015",
+    "textPatterns": [
+      "VALET DU PNEU 2015"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "valles-du-richelieu-le-club",
+    "name": "Valles du Richelieu , Le Club",
+    "textPatterns": [
+      "VALLES DU RICHELIEU LE CLUB"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "venne-ford",
+    "name": "Venne ford",
+    "textPatterns": [
+      "VENNE FORD"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "vetisoft",
+    "name": "Vetisoft",
+    "textPatterns": [
+      "VETISOFT"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "viking",
+    "name": "Viking",
+    "textPatterns": [
+      "VIKING"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "vital-roy",
+    "name": "Vital Roy",
+    "textPatterns": [
+      "VITAL ROY"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "vitro",
+    "name": "Vitro",
+    "textPatterns": [
+      "VITRO"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "wesco",
+    "name": "Wesco",
+    "textPatterns": [
+      "WESCO"
+    ],
+    "filenamePatterns": [
+      "WESCO",
+      "^2216682"
+    ]
+  },
+  {
+    "id": "westburn",
+    "name": "Westburn",
+    "textPatterns": [
+      "WESTBURN"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "westburne",
+    "name": "Westburne",
+    "textPatterns": [
+      "WESTBURNE"
+    ],
+    "filenamePatterns": []
+  },
+  {
+    "id": "yves-guerin-maitre-electricien",
+    "name": "Yves Guérin Maitre électricien",
+    "textPatterns": [
+      "YVES GUERIN MAITRE ELECTRICIEN"
+    ],
+    "filenamePatterns": []
   }
 ]
