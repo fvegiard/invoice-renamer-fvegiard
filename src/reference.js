@@ -19,14 +19,23 @@ function save(vendors) {
  * @returns {string} Vendor name or 'FournisseurInconnu'
  */
 function matchVendor(filename, text) {
-  const upperFile = filename.toUpperCase();
   const upperText = text.toUpperCase();
+  const vendors = load();
 
-  for (const vendor of load()) {
-    const inText = vendor.textPatterns.some((p) => upperText.includes(p.toUpperCase()));
-    const inFile = vendor.filenamePatterns.some((p) => new RegExp(p, 'i').test(filename));
-    if (inText || inFile) return vendor.name;
+  // Filename patterns are more specific — check them first across all vendors
+  for (const vendor of vendors) {
+    if (vendor.filenamePatterns.some((p) => new RegExp(p, 'i').test(filename))) {
+      return vendor.name;
+    }
   }
+
+  // Fallback: text patterns
+  for (const vendor of vendors) {
+    if (vendor.textPatterns.some((p) => upperText.includes(p.toUpperCase()))) {
+      return vendor.name;
+    }
+  }
+
   return 'FournisseurInconnu';
 }
 
