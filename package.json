@@ -1,0 +1,26 @@
+{
+  "name": "dr-factures",
+  "version": "1.0.0",
+  "description": "Rename and classify PDF invoices — DR company. Runs locally or on Netlify.",
+  "main": "index.js",
+  "scripts": {
+    "serve": "node server.js",
+    "dev": "netlify dev",
+    "deploy": "netlify deploy --prod"
+  },
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@netlify/blobs": "^10.7.4",
+    "dotenv": "^17.4.1",
+    "express": "^5.2.1",
+    "multer": "^2.1.1",
+    "openai": "^6.34.0",
+    "pdf-parse": "^2.4.5",
+    "pdfjs-dist": "^5.6.205",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "pdfkit": "^0.18.0"
+  }
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "wesco",
+    "name": "Wesco",
+    "textPatterns": ["WESCO"],
+    "filenamePatterns": ["WESCO", "^2216682"]
+  },
+  {
+    "id": "lettra-trim",
+    "name": "Lettra Trim",
+    "textPatterns": ["LETTRA TRIM", "LETTRATRIM"],
+    "filenamePatterns": ["LETTRA_TRIM"]
+  },
+  {
+    "id": "higginssmith",
+    "name": "HigginsSmith TI inc",
+    "textPatterns": ["HIGGINSSMITH"],
+    "filenamePatterns": ["HIGGINSSMITH", "HIGGINS"]
+  },
+  {
+    "id": "wjl",
+    "name": "Service d'entretien WJL inc",
+    "textPatterns": ["WJL"],
+    "filenamePatterns": ["WJL"]
+  },
+  {
+    "id": "guillevin",
+    "name": "Guillevin International Co",
+    "textPatterns": ["GUILLEVIN"],
+    "filenamePatterns": []
+  },
+  {
+    "id": "jean-claude-savoie",
+    "name": "Jean-Claude Savoie",
+    "textPatterns": ["JEAN-CLAUDE"],
+    "filenamePatterns": ["JEAN-CLAUDE", "^FACT21"]
+  },
+  {
+    "id": "united-rentals",
+    "name": "United Rentals",
+    "textPatterns": ["UNITED RENTALS"],
+    "filenamePatterns": ["ATTACHMENT_"]
+  },
+  {
+    "id": "bell",
+    "name": "Bell",
+    "textPatterns": ["BELL CANADA", "BELL MOBILITÉ"],
+    "filenamePatterns": ["BELL"]
+  },
+  {
+    "id": "energir",
+    "name": "Energir",
+    "textPatterns": ["ENERGIR", "GAZ MÉTRO"],
+    "filenamePatterns": ["ENERGIR"]
+  },
+  {
+    "id": "ccq",
+    "name": "CCQ",
+    "textPatterns": ["COMMISSION DE LA CONSTRUCTION"],
+    "filenamePatterns": ["CCQ"]
+  }
+]
