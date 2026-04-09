@@ -152,8 +152,7 @@
       "BELL MOBILITÉ"
     ],
     "filenamePatterns": [
-      "BELL",
-      "^4509"
+      "BELL"
     ]
   },
   {
@@ -221,7 +220,7 @@
       "BMN MECANIQUE"
     ],
     "filenamePatterns": [
-      "^2[0-9]{3}$"
+      "^1[89][0-9]{3}$"
     ]
   },
   {
@@ -405,7 +404,9 @@
       "DISTRIBUTECK",
       "DISTRIBUTEK"
     ],
-    "filenamePatterns": []
+    "filenamePatterns": [
+      "^28[0-9]{4}$"
+    ]
   },
   {
     "id": "dlt",
@@ -430,7 +431,7 @@
       "DRUMCO"
     ],
     "filenamePatterns": [
-      "DRUMCO"
+      "^62[0-9]{4}$"
     ]
   },
   {
@@ -563,7 +564,10 @@
       "FIRST NATIONS ELECTRIC",
       "FIRST NATION"
     ],
-    "filenamePatterns": []
+    "filenamePatterns": [
+      "^1[0-9]{4}$",
+      "^fact [0-9]+"
+    ]
   },
   {
     "id": "fonds-d-investissement-immobilier-innoval",
@@ -580,7 +584,7 @@
       "FORAGE EXPERT"
     ],
     "filenamePatterns": [
-      "^0[0-9]{5}$"
+      "^06[0-9]{4}$"
     ]
   },
   {
@@ -697,7 +701,10 @@
       "GROUPE SIP",
       "SITE INTEGRATION PLUS"
     ],
-    "filenamePatterns": []
+    "filenamePatterns": [
+      "^30[0-9]{3}$",
+      "^SIP [0-9]+"
+    ]
   },
   {
     "id": "groupe-sourcinc",
@@ -714,7 +721,9 @@
       "GUERIN MAITRE ELECTRICIEN",
       "GUÉRIN MAITRE ÉLECTRICIEN"
     ],
-    "filenamePatterns": []
+    "filenamePatterns": [
+      "^19[0-9]{3}$"
+    ]
   },
   {
     "id": "guillevin",
@@ -724,7 +733,7 @@
       "GUILLEVIN INTERNATIONAL"
     ],
     "filenamePatterns": [
-      "GUILLEVIN"
+      "^[78][0-9]{6}"
     ]
   },
   {
@@ -752,8 +761,7 @@
       "HARNOIS"
     ],
     "filenamePatterns": [
-      "^1043",
-      "^1066"
+      "^424[0-9]{5}"
     ]
   },
   {
@@ -792,7 +800,9 @@
     "textPatterns": [
       "HILTI"
     ],
-    "filenamePatterns": []
+    "filenamePatterns": [
+      "^168[0-9]{7}"
+    ]
   },
   {
     "id": "hydraulique-pat-2012",
@@ -834,7 +844,7 @@
       "J SPEC"
     ],
     "filenamePatterns": [
-      "^9002[0-9]"
+      "^9002[0-9]{4}"
     ]
   },
   {
@@ -890,7 +900,7 @@
     ],
     "filenamePatterns": [
       "^1060022-",
-      "^53[0-9]{4}"
+      "^53[0-9]{4}$"
     ]
   },
   {
@@ -1121,7 +1131,7 @@
       "MOQUIN AMYOT"
     ],
     "filenamePatterns": [
-      "^24[0-9]{5}$"
+      "^2[46][0-9]{5}$"
     ]
   },
   {
@@ -1205,7 +1215,9 @@
       "O.FONTAINE",
       "FONTAINE"
     ],
-    "filenamePatterns": []
+    "filenamePatterns": [
+      "^1-5[0-9]+"
+    ]
   },
   {
     "id": "pierre-boily-electrique-inc",
@@ -1278,7 +1290,9 @@
       "QUINCAILLERIE DEMERS",
       "DEMERS"
     ],
-    "filenamePatterns": []
+    "filenamePatterns": [
+      "^059[0-9]{4}"
+    ]
   },
   {
     "id": "remorquage-groupe-laberge-inc",
@@ -1311,7 +1325,8 @@
       "RONA"
     ],
     "filenamePatterns": [
-      "RONA"
+      "^4[13][0-9]{3}-",
+      "^999-"
     ]
   },
   {
@@ -1419,7 +1434,8 @@
       "STANEX"
     ],
     "filenamePatterns": [
-      "^15[0-9]{4}-"
+      "^IN[0-9]+",
+      "^15[0-9]{4}"
     ]
   },
   {
@@ -1534,7 +1550,7 @@
       "UNITED RENTAL"
     ],
     "filenamePatterns": [
-      "ATTACHMENT_"
+      "^245874387-"
     ]
   },
   {
@@ -1626,8 +1642,8 @@
       "WESCO"
     ],
     "filenamePatterns": [
-      "WESCO",
-      "^2216682"
+      "^1141[0-9]{3}",
+      "^03[0-9]{4}$"
     ]
   },
   {
