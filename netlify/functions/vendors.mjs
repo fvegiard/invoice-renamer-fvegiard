@@ -1,12 +1,16 @@
 import { getStore } from '@netlify/blobs';
-import { createReadStream } from 'fs';
 import { readFileSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { URL } from 'url';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const SEED_FILE = join(__dirname, '../../data/vendors.json');
+const SEED_FILE = new URL('../../data/vendors.json', import.meta.url);
 const BLOB_KEY  = 'vendors';
+
+function jsonResponse(body, status = 200) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { 'Content-Type': 'application/json' },
+  });
+}
 
 async function getVendors(store) {
   try {
@@ -21,41 +25,41 @@ async function saveVendors(store, vendors) {
   await store.set(BLOB_KEY, JSON.stringify(vendors, null, 2));
 }
 
-export default async function handler(event) {
+export default async function handler(request) {
   const store   = getStore('dr-factures');
-  const method  = event.httpMethod;
-  // Extract optional :id from path  e.g. /api/vendors/guillevin
-  const id      = event.path.split('/api/vendors/')[1]?.split('?')[0] || null;
+  const method  = request.method;
+  const url = new URL(request.url);
+  const id = url.pathname.split('/api/vendors/')[1]?.split('/')[0] || null;
   const vendors = await getVendors(store);
 
   if (method === 'GET') {
-    return { statusCode: 200, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(vendors) };
+    return jsonResponse(vendors);
   }
 
   if (method === 'POST') {
-    const v = JSON.parse(event.body);
+    const v = await request.json();
     if (vendors.find(x => x.id === v.id)) {
-      return { statusCode: 400, body: JSON.stringify({ error: `ID "${v.id}" déjà utilisé` }) };
+      return jsonResponse({ error: `ID "${v.id}" déjà utilisé` }, 400);
     }
     vendors.push(v);
     await saveVendors(store, vendors);
-    return { statusCode: 201, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(v) };
+    return jsonResponse(v, 201);
   }
 
   if (method === 'PUT' && id) {
     const idx = vendors.findIndex(v => v.id === id);
-    if (idx === -1) return { statusCode: 404, body: JSON.stringify({ error: 'Introuvable' }) };
-    vendors[idx] = { ...vendors[idx], ...JSON.parse(event.body), id };
+    if (idx === -1) return jsonResponse({ error: 'Introuvable' }, 404);
+    vendors[idx] = { ...vendors[idx], ...await request.json(), id };
     await saveVendors(store, vendors);
-    return { statusCode: 200, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(vendors[idx]) };
+    return jsonResponse(vendors[idx]);
   }
 
   if (method === 'DELETE' && id) {
     const filtered = vendors.filter(v => v.id !== id);
-    if (filtered.length === vendors.length) return { statusCode: 404, body: JSON.stringify({ error: 'Introuvable' }) };
+    if (filtered.length === vendors.length) return jsonResponse({ error: 'Introuvable' }, 404);
     await saveVendors(store, filtered);
-    return { statusCode: 204, body: '' };
+    return new Response(null, { status: 204 });
   }
 
-  return { statusCode: 405, body: 'Method Not Allowed' };
+  return new Response('Method Not Allowed', { status: 405 });
 }

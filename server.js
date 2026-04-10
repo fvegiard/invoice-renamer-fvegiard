@@ -7,6 +7,7 @@ const path = require('path');
 
 const config = require('./src/config');
 const { analyzeInvoice, warmUp } = require('./src/ocr');
+const { build2026Filename } = require('./src/naming');
 const reference = require('./src/reference');
 const knowledge = require('./src/knowledge');
 
@@ -41,16 +42,31 @@ app.post('/rename', upload.array('files'), async (req, res) => {
   const results = await Promise.allSettled(
     req.files.map(async (file) => {
       try {
-        const { date, vendor, invoiceNumber } = await analyzeInvoice(file.buffer, file.originalname);
+        const analysis = await analyzeInvoice(file.buffer, file.originalname);
+        const naming = build2026Filename(analysis);
 
-        const newFilename = `${date} - ${config.prefix} - ${invoiceNumber} - ${vendor}.pdf`;
+        const newFilename = naming.renamed;
         const destPath = resolveUniquePath(config.outputDirNew, newFilename);
         fs.writeFileSync(destPath, file.buffer);
 
         const renamed = path.basename(destPath);
-        knowledge.record({ original: file.originalname, renamed, date, vendor, invoiceNumber, status: 'ok' });
+        knowledge.record({
+          original: file.originalname,
+          renamed,
+          date: naming.date,
+          vendor: naming.vendor,
+          invoiceNumber: naming.invoiceNumber,
+          status: 'ok',
+        });
 
-        return { original: file.originalname, renamed, status: 'ok' };
+        return {
+          original: file.originalname,
+          renamed,
+          status: 'ok',
+          date: naming.date,
+          vendor: naming.vendor,
+          invoiceNumber: naming.invoiceNumber,
+        };
       } catch (err) {
         knowledge.record({ original: file.originalname, renamed: null, status: 'error', message: err.message });
         throw err;

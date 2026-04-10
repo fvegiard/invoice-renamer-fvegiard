@@ -4,7 +4,7 @@
 
 [functions]
   node_bundler = "esbuild"
-  included_files = ["data/vendors.json"]
+  included_files = ["data/vendors.json", "src/**"]
 
 [functions."rename"]
   timeout = 26

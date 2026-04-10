@@ -3,6 +3,7 @@ const path = require('path');
 const pdf = require('pdf-parse');
 
 const config = require('./config');
+const { build2026Filename } = require('./naming');
 const { extractDate, extractVendor, extractInvoiceNumber } = require('./extractors');
 
 async function processInvoices() {
@@ -36,8 +37,14 @@ async function processFile(filename) {
   const dateStr = extractDate(text);
   const vendorName = extractVendor(filename, text);
   const invoiceNumber = extractInvoiceNumber(filename);
+  const naming = build2026Filename({
+    date: dateStr,
+    vendor: vendorName,
+    invoiceNumber,
+    sourceText: text,
+  });
 
-  const newFilename = `${dateStr} - ${config.prefix} - ${invoiceNumber} - ${vendorName}.pdf`;
+  const newFilename = naming.renamed;
   const destPath = path.join(config.outputDir, newFilename);
 
   fs.copyFileSync(srcPath, destPath);

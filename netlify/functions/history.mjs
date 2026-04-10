@@ -3,6 +3,13 @@ import { randomUUID } from 'crypto';
 
 const BLOB_KEY = 'history';
 
+function jsonResponse(body, status = 200) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { 'Content-Type': 'application/json' },
+  });
+}
+
 async function getHistory(store) {
   try {
     const raw = await store.get(BLOB_KEY);
@@ -11,21 +18,17 @@ async function getHistory(store) {
   return { processed: [], stats: { total: 0, successful: 0, failed: 0 } };
 }
 
-export default async function handler(event) {
+export default async function handler(request) {
   const store  = getStore('dr-factures');
-  const method = event.httpMethod;
+  const method = request.method;
 
   if (method === 'GET') {
     const data = await getHistory(store);
-    return {
-      statusCode: 200,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data.processed.slice(0, 100)),
-    };
+    return jsonResponse(data.processed.slice(0, 100));
   }
 
   if (method === 'POST') {
-    const entry = JSON.parse(event.body);
+    const entry = await request.json();
     const data  = await getHistory(store);
 
     data.processed.unshift({ id: randomUUID(), timestamp: new Date().toISOString(), ...entry });
@@ -35,8 +38,8 @@ export default async function handler(event) {
     else data.stats.failed++;
 
     await store.set(BLOB_KEY, JSON.stringify(data, null, 2));
-    return { statusCode: 201, body: '' };
+    return new Response(null, { status: 201 });
   }
 
-  return { statusCode: 405, body: 'Method Not Allowed' };
+  return new Response('Method Not Allowed', { status: 405 });
 }

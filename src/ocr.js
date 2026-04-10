@@ -13,6 +13,7 @@ Object.assign(globalThis, { DOMMatrix, DOMPoint, DOMRect, ImageData });
 const pdfjsLib = require('pdfjs-dist');
 const Tesseract = require('tesseract.js');
 
+const { extractPdfText } = require('./pdf-text');
 const { extractDate, extractVendor, extractInvoiceNumber } = require('./extractors');
 
 let worker = null;
@@ -59,13 +60,16 @@ async function analyzeInvoice(pdfBuffer, filename) {
 
   const w = await getWorker();
   const { data } = await w.recognize(imageBuffer);
-  const text = data.text;
+  const ocrText = data.text;
+  const pdfText = await extractPdfText(pdfBuffer).catch(() => '');
+  const text = pdfText || ocrText;
+  const combinedText = [pdfText, ocrText].filter(Boolean).join('\n');
 
   const date = extractDate(text);
   const vendor = extractVendor(filename, text);
   const invoiceNumber = extractInvoiceNumber(filename);
 
-  return { date, vendor, invoiceNumber };
+  return { date, vendor, invoiceNumber, sourceText: text, combinedSourceText: combinedText };
 }
 
 /**

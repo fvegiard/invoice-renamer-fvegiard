@@ -1,5 +1,12 @@
 require('dotenv').config();
 
+if (!Map.prototype.getOrInsertComputed) {
+  Map.prototype.getOrInsertComputed = function (key, fn) {
+    if (!this.has(key)) this.set(key, fn(key));
+    return this.get(key);
+  };
+}
+
 // Polyfill browser globals required by pdfjs-dist in Node.js
 const { DOMMatrix, DOMPoint, DOMRect, createCanvas, ImageData } = require('@napi-rs/canvas');
 Object.assign(globalThis, { DOMMatrix, DOMPoint, DOMRect, ImageData });
@@ -8,8 +15,18 @@ const pdfjsLib = require('pdfjs-dist');
 const OpenAI = require('openai');
 
 const config = require('./config');
+const { canonicalizeVendor } = require('./reference');
+const { extractPdfText } = require('./pdf-text');
 
-const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+function getClient() {
+  const apiKey = process.env.OPENAI_API_KEY || process.env.OPENROUTER_API_KEY;
+  if (!apiKey) throw new Error('Missing AI API key');
+
+  return new OpenAI({
+    apiKey,
+    baseURL: process.env.OPENAI_BASE_URL || undefined,
+  });
+}
 
 const PROMPT = `Tu analyses une facture commerciale québécoise. Extrais précisément:
 1. La DATE de la facture au format YY.MM.DD (ex: 26.04.01 pour le 1er avril 2026)
@@ -47,6 +64,7 @@ async function renderFirstPage(pdfBuffer, scale = 2.0) {
  */
 async function callVision(imageBuffer) {
   const base64 = imageBuffer.toString('base64');
+  const client = getClient();
 
   const response = await client.chat.completions.create({
     model: config.openaiModel,
@@ -74,9 +92,16 @@ async function callVision(imageBuffer) {
  * @param {Buffer} pdfBuffer
  * @returns {Promise<{date: string, vendor: string, invoiceNumber: string}>}
  */
-async function analyzeInvoice(pdfBuffer) {
+async function analyzeInvoice(pdfBuffer, filename = '') {
   const imageBuffer = await renderFirstPage(pdfBuffer);
-  return callVision(imageBuffer);
+  const result = await callVision(imageBuffer);
+  const sourceText = await extractPdfText(pdfBuffer).catch(() => '');
+
+  return {
+    ...result,
+    vendor: canonicalizeVendor(result.vendor, filename, sourceText),
+    sourceText,
+  };
 }
 
 module.exports = { analyzeInvoice };

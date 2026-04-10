@@ -1,119 +1,153 @@
-import { createRequire } from 'module';
 import OpenAI from 'openai';
+import { fileURLToPath } from 'url';
+import path from 'path';
+import { pathToFileURL } from 'url';
 
-// @napi-rs/canvas is CommonJS native — use createRequire inside ESM
-const require = createRequire(import.meta.url);
-const { DOMMatrix, DOMPoint, DOMRect, createCanvas, ImageData } = require('@napi-rs/canvas');
+const functionDir = path.dirname(fileURLToPath(import.meta.url));
+const srcDir = path.resolve(functionDir, '../../src');
+const [{ canonicalizeVendor }, { build2026Filename }] = await Promise.all([
+  import(pathToFileURL(path.join(srcDir, 'reference.js')).href),
+  import(pathToFileURL(path.join(srcDir, 'naming.js')).href),
+]);
 
-// pdfjs-dist needs browser globals polyfilled in Node.js
-Object.assign(globalThis, { DOMMatrix, DOMPoint, DOMRect, ImageData });
+const PROMPT = `Tu analyses un PDF de facture commerciale québécoise.
+Extrais précisément:
+1. DATE de la facture au format YY.MM.DD (ex: 26.04.01 pour le 1er avril 2026)
+2. NOM du fournisseur/vendeur tel qu'il apparaît sur la facture
+3. NUMÉRO de facture principal
+4. CODE CLIENT / COMPTE / PROJET si clairement visible
+5. RÉFÉRENCE CLIENT / P.O. / bon de commande si clairement visible
+6. Type de document: "invoice" ou "credit"
 
-import pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs';
+Réponds UNIQUEMENT en JSON strict:
+{"date":"YY.MM.DD","vendor":"NomFournisseur","invoiceNumber":"XXXXX","customerCode":"","customerReference":"","documentType":"invoice"}
 
-const PREFIX = 'DR';
-const MODEL  = process.env.OPENAI_MODEL || 'gpt-4.1';
+Si une valeur est introuvable: "" pour les champs texte, "YY.MM.DD" pour date.`;
 
-const PROMPT = `Tu es un assistant spécialisé dans les factures commerciales québécoises.
-Regarde cette image de facture et extrais précisément:
+function getClient() {
+  const apiKey = process.env.OPENAI_API_KEY || process.env.OPENROUTER_API_KEY;
+  if (!apiKey) throw new Error('Missing AI API key');
 
-1. DATE de la facture au format YY.MM.DD (ex: 26.03.15 pour le 15 mars 2026)
-2. NOM EXACT du fournisseur tel qu'il apparaît sur la facture (ex: Guillevin International Co, Bell Canada, United Rentals)
-3. NUMÉRO de facture (ex: 8892642, I7501959, 030677, IN001128)
-
-Réponds UNIQUEMENT en JSON strict, sans texte autour:
-{"date":"YY.MM.DD","vendor":"NomFournisseur","invoiceNumber":"XXXXX"}
-
-Si une valeur est introuvable, utilise: "" pour vendor/invoiceNumber, "YY.MM.DD" pour date.`;
-
-const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-
-/**
- * Renders the first page of a PDF buffer to a PNG buffer.
- */
-async function pdfToPng(pdfBuffer, scale = 1.5) {
-  const doc  = await pdfjsLib.getDocument({ data: new Uint8Array(pdfBuffer) }).promise;
-  const page = await doc.getPage(1);
-  const vp   = page.getViewport({ scale });
-
-  const canvas = createCanvas(vp.width, vp.height);
-  await page.render({ canvasContext: canvas.getContext('2d'), viewport: vp }).promise;
-
-  return canvas.toBuffer('image/png');
+  return new OpenAI({
+    apiKey,
+    baseURL: process.env.OPENAI_BASE_URL || undefined,
+  });
 }
 
-/**
- * Sends a PNG image to OpenAI Vision and returns invoice metadata.
- */
-async function analyzeWithVision(pngBuffer) {
-  const base64 = pngBuffer.toString('base64');
+function jsonResponse(body, status = 200) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { 'Content-Type': 'application/json' },
+  });
+}
 
+function normalizeResult(raw) {
+  return {
+    date: raw.date || raw.invoiceDate || 'YY.MM.DD',
+    vendor: raw.vendor || raw.supplier || raw.vendorName || '',
+    invoiceNumber: raw.invoiceNumber || raw.invoice_number || raw.number || '00000',
+    customerCode: raw.customerCode || raw.customer_code || raw.account || raw.client || '',
+    customerReference: raw.customerReference || raw.customer_reference || raw.purchaseOrder || raw.poNumber || '',
+    documentType: raw.documentType || raw.document_type || 'invoice',
+  };
+}
+
+function getCandidateModels() {
+  return [...new Set([
+    process.env.OPENAI_MODEL,
+    'openai/gpt-4o',
+    'openai/gpt-4.1',
+    'gpt-4o',
+  ].filter(Boolean))];
+}
+
+function isRetryableModelRoutingError(error) {
+  const message = String(error?.message || '');
+  return message.includes('unable to find suitable provider');
+}
+
+async function extractMetadataWithModel(client, pdfBase64, model) {
   const response = await client.chat.completions.create({
-    model: MODEL,
-    messages: [{
-      role: 'user',
-      content: [
-        { type: 'text', text: PROMPT },
-        { type: 'image_url', image_url: { url: `data:image/png;base64,${base64}`, detail: 'high' } },
-      ],
-    }],
+    model,
+    messages: [
+      {
+        role: 'user',
+        content: [
+          { type: 'text', text: PROMPT },
+          {
+            type: 'file',
+            file: {
+              filename: 'invoice.pdf',
+              file_data: `data:application/pdf;base64,${pdfBase64}`,
+            },
+          },
+        ],
+      },
+    ],
     response_format: { type: 'json_object' },
     max_tokens: 150,
   });
 
-  return JSON.parse(response.choices[0].message.content);
+  return normalizeResult(JSON.parse(response.choices[0].message.content));
 }
 
-export default async function handler(event) {
-  if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, body: 'Method Not Allowed' };
+async function extractMetadata(pdfBase64) {
+  const client = getClient();
+  let lastError = null;
+
+  for (const model of getCandidateModels()) {
+    try {
+      return await extractMetadataWithModel(client, pdfBase64, model);
+    } catch (error) {
+      lastError = error;
+      if (!isRetryableModelRoutingError(error)) {
+        throw error;
+      }
+    }
   }
 
-  if (!process.env.OPENAI_API_KEY) {
-    return { statusCode: 503, body: JSON.stringify({ error: 'OPENAI_API_KEY non configurée sur Netlify.' }) };
+  throw lastError || new Error('No usable AI model available');
+}
+
+export default async function handler(request) {
+  if (request.method !== 'POST') {
+    return new Response('Method Not Allowed', { status: 405 });
   }
 
   try {
-    const { files } = JSON.parse(event.body);
+    const { files } = await request.json();
 
-    // Process one at a time to avoid memory spikes on serverless
-    const results = [];
-    for (const { name, data } of files) {
-      try {
-        const pdfBuffer = Buffer.from(data, 'base64');
+    const results = await Promise.all(
+      files.map(async ({ name, data }) => {
+        try {
+          const extracted = await extractMetadata(data);
+          const vendorName = canonicalizeVendor(extracted.vendor, name, '');
+          const naming = build2026Filename({
+            date: extracted.date || 'YY.MM.DD',
+            vendor: vendorName,
+            invoiceNumber: extracted.invoiceNumber || '00000',
+            customerCode: extracted.customerCode || '',
+            customerReference: extracted.customerReference || '',
+            documentType: extracted.documentType || 'invoice',
+          });
 
-        // 1. PDF → PNG
-        const pngBuffer = await pdfToPng(pdfBuffer);
-        const preview   = pngBuffer.toString('base64');
+          return {
+            original: name,
+            renamed: naming.renamed,
+            data,
+            status: 'ok',
+            date: naming.date,
+            vendor: naming.vendor,
+            invoiceNumber: naming.invoiceNumber,
+          };
+        } catch (err) {
+          return { original: name, status: 'error', message: err.message };
+        }
+      })
+    );
 
-        // 2. PNG → OpenAI Vision → metadata
-        const { date, vendor, invoiceNumber } = await analyzeWithVision(pngBuffer);
-
-        const dateStr    = date          || 'YY.MM.DD';
-        const vendorName = vendor        || 'FournisseurInconnu';
-        const invNum     = invoiceNumber || '00000';
-        const renamed    = `${dateStr} - ${PREFIX} - ${invNum} - ${vendorName}.pdf`;
-
-        results.push({
-          original: name,
-          renamed,
-          data,        // original PDF for download
-          preview,     // PNG thumbnail (base64)
-          status: 'ok',
-          date: dateStr,
-          vendor: vendorName,
-          invoiceNumber: invNum,
-        });
-      } catch (err) {
-        results.push({ original: name, status: 'error', message: err.message });
-      }
-    }
-
-    return {
-      statusCode: 200,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(results),
-    };
+    return jsonResponse(results);
   } catch (err) {
-    return { statusCode: 500, body: JSON.stringify({ error: err.message }) };
+    return jsonResponse({ error: err.message }, 500);
   }
 }

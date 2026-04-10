@@ -39,6 +39,40 @@ function matchVendor(filename, text) {
   return 'FournisseurInconnu';
 }
 
+/**
+ * Normalize any detected vendor label to the canonical reference name.
+ * Falls back to catalog pattern matching, then to the provided value.
+ * @param {string} vendorName
+ * @param {string} filename
+ * @param {string} text
+ * @returns {string}
+ */
+function canonicalizeVendor(vendorName, filename = '', text = '') {
+  const sourceName = String(vendorName || '').trim();
+  const upperName = sourceName.toUpperCase();
+
+  for (const vendor of load()) {
+    if (vendor.name.toUpperCase() === upperName) return vendor.name;
+
+    const matchesTextPattern = vendor.textPatterns.some((p) => upperName.includes(p.toUpperCase()));
+    const matchesFilenamePattern = vendor.filenamePatterns.some((p) => {
+      try {
+        return new RegExp(p, 'i').test(sourceName);
+      } catch {
+        return false;
+      }
+    });
+
+    if (matchesTextPattern || matchesFilenamePattern) return vendor.name;
+  }
+
+  if (filename || text) {
+    return matchVendor(filename, text);
+  }
+
+  return sourceName || 'FournisseurInconnu';
+}
+
 /** Return the full vendor list */
 function listVendors() {
   return load();
@@ -73,4 +107,11 @@ function removeVendor(id) {
   save(filtered);
 }
 
-module.exports = { matchVendor, listVendors, addVendor, updateVendor, removeVendor };
+module.exports = {
+  matchVendor,
+  canonicalizeVendor,
+  listVendors,
+  addVendor,
+  updateVendor,
+  removeVendor,
+};
