@@ -56,7 +56,7 @@ function getCandidateModels() {
   return [...new Set([
     process.env.OPENAI_MODEL,
     'openai/gpt-4o',
-    'openai/gpt-4.1',
+    
     'gpt-4o',
   ].filter(Boolean))];
 }
