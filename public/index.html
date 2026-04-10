@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DR · Factures</title>
+  <title>DR Â· Factures</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -33,7 +33,7 @@
 
     body { display: flex; flex-direction: column; min-height: 100vh; }
 
-    /* ── Header ─────────────────────────────────── */
+    /* â”€â”€ Header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     header {
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 36px; height: 60px;
@@ -49,7 +49,7 @@
     }
     .logo-name { font-size: 15px; font-weight: 600; white-space: nowrap; }
 
-    /* ── Tab nav ────────────────────────────────── */
+    /* â”€â”€ Tab nav â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .tab-nav { display: flex; gap: 2px; }
     .tab-btn {
       font-family: var(--font); font-size: 13px; font-weight: 500;
@@ -60,18 +60,18 @@
     .tab-btn:hover  { color: var(--text); background: var(--surface-hi); }
     .tab-btn.active { color: var(--accent); background: var(--accent-dim); }
 
-    /* ── Header stats ───────────────────────────── */
+    /* â”€â”€ Header stats â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .hstats { display: flex; align-items: center; gap: 18px; flex-shrink: 0; }
     .hstat  { font-size: 12px; color: var(--text-dim); }
     .hstat strong { color: var(--accent); font-weight: 600; font-size: 14px; }
     .hsep   { width: 1px; height: 14px; background: var(--border); }
 
-    /* ── Main / sections ────────────────────────── */
+    /* â”€â”€ Main / sections â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     main { flex: 1; }
     .tab-section { display: none; padding: 36px; max-width: 820px; margin: 0 auto; }
     .tab-section.active { display: flex; flex-direction: column; gap: 24px; }
 
-    /* ── Section headings ───────────────────────── */
+    /* â”€â”€ Section headings â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .section-head {
       display: flex; align-items: center; justify-content: space-between;
     }
@@ -80,7 +80,7 @@
       text-transform: uppercase; color: var(--text-dim);
     }
 
-    /* ── Buttons ────────────────────────────────── */
+    /* â”€â”€ Buttons â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .btn {
       font-family: var(--font); font-size: 13px; font-weight: 500;
       border: none; cursor: pointer; padding: 7px 14px; border-radius: 7px;
@@ -95,7 +95,7 @@
     .btn-ghost:hover { color: var(--text); background: var(--surface-hi); }
     .btn-danger  { background: rgba(248,113,113,.15); color: var(--error); border: 1px solid rgba(248,113,113,.25); }
 
-    /* ── Drop zone ──────────────────────────────── */
+    /* â”€â”€ Drop zone â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .drop-zone {
       border: 2px dashed var(--border); border-radius: var(--r);
       background: var(--surface); min-height: 190px;
@@ -129,7 +129,7 @@
     @keyframes spin { to { transform: rotate(360deg); } }
     .dz-loading-text { font-size: 13px; color: var(--text-dim); }
 
-    /* ── Result items ───────────────────────────── */
+    /* â”€â”€ Result items â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     #resultsSection { display: none; flex-direction: column; gap: 6px; }
 
     .result-item {
@@ -202,7 +202,7 @@
     .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 6px;
                     box-shadow: 0 0 60px rgba(0,0,0,.6); }
 
-    /* ── History table ──────────────────────────── */
+    /* â”€â”€ History table â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .history-wrap { overflow-x: auto; border-radius: var(--r); border: 1px solid var(--border); }
     table { width: 100%; border-collapse: collapse; }
     thead tr { border-bottom: 1px solid var(--border); }
@@ -230,7 +230,7 @@
       text-align: center; padding: 48px; color: var(--text-dim); font-size: 14px;
     }
 
-    /* ── Vendor cards ───────────────────────────── */
+    /* â”€â”€ Vendor cards â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .vendors-grid { display: flex; flex-direction: column; gap: 8px; }
     .vendor-card {
       background: var(--surface); border: 1px solid var(--border);
@@ -255,7 +255,7 @@
     .btn-icon:hover { color: var(--text); background: var(--surface-hi); }
     .btn-icon.del:hover { color: var(--error); border-color: rgba(248,113,113,.35); background: rgba(248,113,113,.07); }
 
-    /* ── Modal ──────────────────────────────────── */
+    /* â”€â”€ Modal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .modal-overlay {
       position: fixed; inset: 0; background: rgba(0,0,0,.65);
       display: flex; align-items: center; justify-content: center;
@@ -287,7 +287,7 @@
 </head>
 <body>
 
-<!-- ── Header ──────────────────────────────────────────── -->
+<!-- â”€â”€ Header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
 <header>
   <div class="logo">
     <span class="logo-badge">DR</span>
@@ -297,19 +297,19 @@
   <nav class="tab-nav">
     <button class="tab-btn active" data-tab="rename">Renommer</button>
     <button class="tab-btn" data-tab="history">Historique</button>
-    <button class="tab-btn" data-tab="vendors">Fournisseurs</button>
+    <button class="tab-btn" data-tab="vendors">Fournisseurs</button>`n    <button class="tab-btn" data-tab="learning">Apprentissage</button>
   </nav>
 
   <div class="hstats">
-    <div class="hstat">Total <strong id="hTotal">—</strong></div>
+    <div class="hstat">Total <strong id="hTotal">â€”</strong></div>
     <div class="hsep"></div>
-    <div class="hstat">Succès <strong id="hOk">—</strong></div>
+    <div class="hstat">SuccÃ¨s <strong id="hOk">â€”</strong></div>
     <div class="hsep"></div>
-    <div class="hstat">Fournisseurs <strong id="hVendors">—</strong></div>
+    <div class="hstat">Fournisseurs <strong id="hVendors">â€”</strong></div>
   </div>
 </header>
 
-<!-- ── Tab: Renommer ─────────────────────────────────────── -->
+<!-- â”€â”€ Tab: Renommer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
 <main>
 <section id="tab-rename" class="tab-section active">
 
@@ -323,17 +323,17 @@
         <polyline points="9 15 12 12 15 15"/>
       </svg>
       <div class="dz-title">Glisser les PDFs ici</div>
-      <div class="dz-sub">ou cliquer pour sélectionner des fichiers</div>
+      <div class="dz-sub">ou cliquer pour sÃ©lectionner des fichiers</div>
     </div>
     <div class="dz-loading">
       <div class="spinner"></div>
-      <div class="dz-loading-text" id="loadingText">Traitement…</div>
+      <div class="dz-loading-text" id="loadingText">Traitementâ€¦</div>
     </div>
   </div>
 
   <div id="resultsSection">
     <div class="section-head">
-      <span class="section-title">Résultats</span>
+      <span class="section-title">RÃ©sultats</span>
       <button class="btn btn-ghost" id="clearBtn" style="font-size:12px;padding:4px 12px">Effacer</button>
     </div>
     <div id="resultsList" style="display:flex;flex-direction:column;gap:6px;margin-top:10px"></div>
@@ -341,12 +341,12 @@
 
 </section>
 
-<!-- ── Tab: Historique ───────────────────────────────────── -->
+<!-- â”€â”€ Tab: Historique â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
 <section id="tab-history" class="tab-section">
 
   <div class="section-head">
-    <span class="section-title">Historique des factures traitées</span>
-    <button class="btn btn-ghost" onclick="loadHistory()" style="font-size:12px;padding:4px 12px">↺ Actualiser</button>
+    <span class="section-title">Historique des factures traitÃ©es</span>
+    <button class="btn btn-ghost" onclick="loadHistory()" style="font-size:12px;padding:4px 12px">â†º Actualiser</button>
   </div>
 
   <div class="history-wrap">
@@ -357,19 +357,19 @@
           <th>Fournisseur</th>
           <th>No. Facture</th>
           <th>Fichier original</th>
-          <th>Fichier renommé</th>
+          <th>Fichier renommÃ©</th>
           <th>Statut</th>
         </tr>
       </thead>
       <tbody id="historyBody">
-        <tr><td colspan="6" class="empty-state">Aucune facture traitée pour l'instant.</td></tr>
+        <tr><td colspan="6" class="empty-state">Aucune facture traitÃ©e pour l'instant.</td></tr>
       </tbody>
     </table>
   </div>
 
 </section>
 
-<!-- ── Tab: Fournisseurs ─────────────────────────────────── -->
+<!-- â”€â”€ Tab: Fournisseurs â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
 <section id="tab-vendors" class="tab-section">
 
   <div class="section-head">
@@ -378,18 +378,33 @@
   </div>
 
   <div class="vendors-grid" id="vendorsList">
-    <div class="empty-state">Chargement…</div>
+    <div class="empty-state">Chargementâ€¦</div>
   </div>
 
 </section>
+<!-- ?? Tab: Apprentissage ?? -->
+<section id="tab-learning" class="tab-section">
+  <div class="section-head">
+    <span class="section-title">Enseigner une nouvelle logique ?? l''IA</span>
+    <button class="btn btn-ghost" onclick="loadLearning()" style="font-size:12px;padding:4px 12px">?? Actualiser</button>
+  </div>
+
+  <div class="form-hint" style="margin-bottom:15px; background:rgba(232,160,48,0.05); padding:10px; border-radius:8px; border:1px solid var(--accent-dim)">
+    ?? <strong>Comment ??a marche ?</strong> Si l''IA se trompe sur un format, corrigez-le ici. Ces corrections seront envoy??es comme exemples (Few-Shot) ?? l''IA lors de ses prochaines analyses.
+  </div>
+
+  <div id="learningList" style="display:flex; flex-direction:column; gap:10px">
+    <div class="empty-state">Chargement des exemples...</div>
+  </div>
+</section>
 </main>
 
-<!-- ── Lightbox aperçu PDF ──────────────────────────────────── -->
+<!-- â”€â”€ Lightbox aperÃ§u PDF â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
 <div class="lightbox" id="lightbox" hidden>
-  <img id="lightboxImg" src="" alt="Aperçu facture">
+  <img id="lightboxImg" src="" alt="AperÃ§u facture">
 </div>
 
-<!-- ── Modal: Ajouter / Modifier fournisseur ───────────────── -->
+<!-- â”€â”€ Modal: Ajouter / Modifier fournisseur â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
 <div class="modal-overlay" id="modal" hidden>
   <div class="modal">
     <div class="modal-title" id="modalTitle">Ajouter un fournisseur</div>
@@ -402,19 +417,19 @@
     <div class="form-group">
       <label class="form-label">Identifiant (ID)</label>
       <input class="form-input" id="fId" placeholder="ex: guillevin">
-      <span class="form-hint">Généré automatiquement. Unique, sans espaces.</span>
+      <span class="form-hint">GÃ©nÃ©rÃ© automatiquement. Unique, sans espaces.</span>
     </div>
 
     <div class="form-group">
-      <label class="form-label">Mots-clés dans le texte du PDF</label>
+      <label class="form-label">Mots-clÃ©s dans le texte du PDF</label>
       <input class="form-input" id="fTextPatterns" placeholder="ex: GUILLEVIN, GUILLEVIN INTL">
-      <span class="form-hint">Séparés par des virgules. Insensible à la casse.</span>
+      <span class="form-hint">SÃ©parÃ©s par des virgules. Insensible Ã  la casse.</span>
     </div>
 
     <div class="form-group">
-      <label class="form-label">Mots-clés dans le nom de fichier</label>
+      <label class="form-label">Mots-clÃ©s dans le nom de fichier</label>
       <input class="form-input" id="fFilePatterns" placeholder="ex: GUILLEVIN, ^INV\d">
-      <span class="form-hint">Séparés par des virgules. Accepte les regex.</span>
+      <span class="form-hint">SÃ©parÃ©s par des virgules. Accepte les regex.</span>
     </div>
 
     <div class="modal-actions">
@@ -425,7 +440,7 @@
 </div>
 
 <script>
-// ── Tab switching ───────────────────────────────────────────
+// â”€â”€ Tab switching â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const tabBtns = document.querySelectorAll('.tab-btn');
 const tabSections = document.querySelectorAll('.tab-section');
 
@@ -436,12 +451,13 @@ tabBtns.forEach(btn => {
     tabSections.forEach(s => {
       s.classList.toggle('active', s.id === `tab-${target}`);
     });
-    if (target === 'history') loadHistory();
+        if (target === 'history') loadHistory();
     if (target === 'vendors') loadVendors();
+    if (target === 'learning') loadLearning();
   });
 });
 
-// ── Header stats ────────────────────────────────────────────
+// â”€â”€ Header stats â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function loadStats() {
   try {
     const [stats, vendors] = await Promise.all([
@@ -454,7 +470,7 @@ async function loadStats() {
   } catch {}
 }
 
-// ── Drop zone ────────────────────────────────────────────────
+// â”€â”€ Drop zone â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const dropZone   = document.getElementById('dropZone');
 const fileInput  = document.getElementById('fileInput');
 const loadingTxt = document.getElementById('loadingText');
@@ -487,18 +503,18 @@ async function uploadFiles(files) {
   // Process one at a time so the user sees results progressively
   for (let i = 0; i < files.length; i++) {
     const f = files[i];
-    loadingTxt.textContent = `Analyse IA… ${i + 1} / ${files.length}`;
+    loadingTxt.textContent = `Analyse IAâ€¦ ${i + 1} / ${files.length}`;
 
     // Add a "pending" placeholder
     const placeholder = document.createElement('div');
     placeholder.className = 'result-item ok';
     placeholder.innerHTML = `<div class="result-ok-inner">
-      <div class="result-thumb"><div class="result-thumb-placeholder">⏳</div></div>
+      <div class="result-thumb"><div class="result-thumb-placeholder">â³</div></div>
       <div class="result-body">
         <div class="result-original">${esc(f.name)}</div>
-        <div class="result-arrow">↓</div>
+        <div class="result-arrow">â†“</div>
         <div class="result-title-row">
-          <input class="result-title-input" value="Analyse en cours…" disabled>
+          <input class="result-title-input" value="Analyse en coursâ€¦" disabled>
         </div>
       </div>
     </div>`;
@@ -529,14 +545,14 @@ async function uploadFiles(files) {
         }).catch(() => {});
       }
     } catch {
-      placeholder.replaceWith(buildResultCard({ original: f.name, status: 'error', message: 'Erreur réseau ou serveur.' }));
+      placeholder.replaceWith(buildResultCard({ original: f.name, status: 'error', message: 'Erreur rÃ©seau ou serveur.' }));
     }
 
     sessionTotal++;
   }
 
   dropZone.classList.remove('busy');
-  loadingTxt.textContent = 'Traitement…';
+  loadingTxt.textContent = 'Traitementâ€¦';
   loadStats();
 }
 
@@ -546,17 +562,17 @@ function buildResultCard(r) {
 
   if (r.status === 'ok') {
     const thumbHtml = r.preview
-      ? `<img src="data:image/png;base64,${r.preview}" alt="aperçu" style="cursor:zoom-in">`
-      : `<div class="result-thumb-placeholder">📄</div>`;
+      ? `<img src="data:image/png;base64,${r.preview}" alt="aperÃ§u" style="cursor:zoom-in">`
+      : `<div class="result-thumb-placeholder">ðŸ“„</div>`;
 
     el.innerHTML = `<div class="result-ok-inner">
       <div class="result-thumb">${thumbHtml}</div>
       <div class="result-body">
         <div class="result-original">${esc(r.original)}</div>
-        <div class="result-arrow">↓</div>
+        <div class="result-arrow">â†“</div>
         <div class="result-title-row">
           <input class="result-title-input" value="${esc(r.renamed)}" title="Cliquer pour modifier le nom">
-          <button class="result-dl-btn">⬇ Télécharger</button>
+          <button class="result-dl-btn">â¬‡ TÃ©lÃ©charger</button>
         </div>
       </div>
     </div>`;
@@ -580,7 +596,7 @@ function buildResultCard(r) {
 
   } else {
     el.innerHTML = `<div class="result-error-inner">
-      <span class="result-icon">❌</span>
+      <span class="result-icon">âŒ</span>
       <div class="result-error-body">
         <div class="result-error-name">${esc(r.original)}</div>
         <div class="result-error-msg">${esc(r.message || 'Erreur inconnue')}</div>
@@ -591,32 +607,32 @@ function buildResultCard(r) {
   return el;
 }
 
-// ── History tab ──────────────────────────────────────────────
+// â”€â”€ History tab â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function loadHistory() {
   const body = document.getElementById('historyBody');
   try {
     const rows = await fetch('/api/history').then(r => r.json());
     if (!rows.length) {
-      body.innerHTML = `<tr><td colspan="6" class="empty-state">Aucune facture traitée pour l'instant.</td></tr>`;
+      body.innerHTML = `<tr><td colspan="6" class="empty-state">Aucune facture traitÃ©e pour l'instant.</td></tr>`;
       return;
     }
     body.innerHTML = rows.map(r => `
       <tr>
         <td class="td-dim">${fmtDate(r.timestamp)}</td>
-        <td>${esc(r.vendor || '—')}</td>
-        <td class="td-mono td-dim">${esc(r.invoiceNumber || '—')}</td>
+        <td>${esc(r.vendor || 'â€”')}</td>
+        <td class="td-mono td-dim">${esc(r.invoiceNumber || 'â€”')}</td>
         <td class="td-mono td-dim" style="max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${esc(r.original)}">${esc(r.original)}</td>
         <td class="td-mono" style="max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--success)" title="${esc(r.renamed||r.message||'')}">
           ${r.status === 'ok' ? esc(r.renamed) : `<span style="color:var(--error)">${esc(r.message||'Erreur')}</span>`}
         </td>
-        <td><span class="badge badge-${r.status === 'ok' ? 'ok' : 'error'}">${r.status === 'ok' ? '✓ OK' : '✗ Erreur'}</span></td>
+        <td><span class="badge badge-${r.status === 'ok' ? 'ok' : 'error'}">${r.status === 'ok' ? 'âœ“ OK' : 'âœ— Erreur'}</span></td>
       </tr>`).join('');
   } catch {
     body.innerHTML = `<tr><td colspan="6" class="empty-state">Impossible de charger l'historique.</td></tr>`;
   }
 }
 
-// ── Vendors tab ──────────────────────────────────────────────
+// â”€â”€ Vendors tab â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function loadVendors() {
   const grid = document.getElementById('vendorsList');
   try {
@@ -644,7 +660,7 @@ async function loadVendors() {
   }
 }
 
-// ── Vendor modal ─────────────────────────────────────────────
+// â”€â”€ Vendor modal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const modal     = document.getElementById('modal');
 const fName     = document.getElementById('fName');
 const fId       = document.getElementById('fId');
@@ -659,8 +675,8 @@ modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
 fName.addEventListener('input', () => {
   if (!editingId) {
     fId.value = fName.value.toLowerCase()
-      .replace(/[àâä]/g,'a').replace(/[éèêë]/g,'e').replace(/[îï]/g,'i')
-      .replace(/[ôö]/g,'o').replace(/[ùûü]/g,'u').replace(/ç/g,'c')
+      .replace(/[Ã Ã¢Ã¤]/g,'a').replace(/[Ã©Ã¨ÃªÃ«]/g,'e').replace(/[Ã®Ã¯]/g,'i')
+      .replace(/[Ã´Ã¶]/g,'o').replace(/[Ã¹Ã»Ã¼]/g,'u').replace(/Ã§/g,'c')
       .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   }
 });
@@ -705,7 +721,7 @@ document.getElementById('modalSave').addEventListener('click', async () => {
     closeModal();
     loadVendors();
     loadStats();
-  } catch { alert('Erreur réseau'); }
+  } catch { alert('Erreur rÃ©seau'); }
 });
 
 async function deleteVendor(id, name) {
@@ -714,10 +730,10 @@ async function deleteVendor(id, name) {
     await fetch(`/api/vendors/${id}`, { method: 'DELETE' });
     loadVendors();
     loadStats();
-  } catch { alert('Erreur réseau'); }
+  } catch { alert('Erreur rÃ©seau'); }
 }
 
-// ── Utilities ────────────────────────────────────────────────
+// â”€â”€ Utilities â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function esc(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
@@ -728,7 +744,7 @@ function fmtDate(iso) {
     + ' ' + d.toLocaleTimeString('fr-CA', { hour:'2-digit', minute:'2-digit' });
 }
 
-// ── Lightbox ─────────────────────────────────────────────────
+// â”€â”€ Lightbox â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 document.getElementById('lightbox').addEventListener('click', () => {
   document.getElementById('lightbox').hidden = true;
 });
@@ -736,8 +752,9 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') document.getElementById('lightbox').hidden = true;
 });
 
-// ── Init ─────────────────────────────────────────────────────
+// â”€â”€ Init â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 loadStats();
 </script>
 </body>
 </html>
+

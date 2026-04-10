@@ -3,6 +3,7 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 import { pathToFileURL } from 'url';
 import { createRequire } from 'module';
+import { getStore } from '@netlify/blobs';
 
 const require = createRequire(import.meta.url);
 const { createCanvas, Image, ImageData, DOMMatrix, DOMPoint, DOMRect } = require('@napi-rs/canvas');
@@ -15,7 +16,6 @@ Object.assign(globalThis, {
 const functionDir = path.dirname(fileURLToPath(import.meta.url));
 const srcDir = path.resolve(functionDir, '../../src');
 
-// Import utilities as ESM
 const [{ canonicalizeVendor }, { build2026Filename }] = await Promise.all([
   import(pathToFileURL(path.join(srcDir, 'reference.js')).href),
   import(pathToFileURL(path.join(srcDir, 'naming.js')).href),
@@ -24,7 +24,15 @@ const [{ canonicalizeVendor }, { build2026Filename }] = await Promise.all([
 // Need to import pdfjs-dist legacy build for Node
 const pdfjsLib = require('pdfjs-dist/legacy/build/pdf.js');
 
-const PROMPT = `Tu es un assistant spécialisé dans les factures commerciales québécoises.
+async function getLearningExamples() {
+  try {
+    const store = getStore('dr-factures');
+    const raw = await store.get('learning_examples');
+    return raw ? JSON.parse(raw) : [];
+  } catch { return []; }
+}
+
+const BASE_PROMPT = `Tu es un assistant spécialisé dans les factures commerciales québécoises.
 Regarde cette image de facture et extrais précisément:
 
 1. DATE de la facture au format YY.MM.DD (ex: 26.03.15 pour le 15 mars 2026)
@@ -56,6 +64,9 @@ function jsonResponse(body, status = 200) {
   });
 }
 
+/**
+ * Renders the first page of a PDF buffer to a PNG buffer.
+ */
 async function pdfToPng(pdfBuffer, scale = 2.0) {
   const doc = await pdfjsLib.getDocument({ data: new Uint8Array(pdfBuffer) }).promise;
   const page = await doc.getPage(1);
@@ -69,10 +80,18 @@ async function pdfToPng(pdfBuffer, scale = 2.0) {
   return canvas.toBuffer('image/png');
 }
 
-async function analyzeWithVision(pngBuffer) {
+async function analyzeWithVision(pngBuffer, examples) {
   const client = getClient();
   const base64 = pngBuffer.toString('base64');
   const model = process.env.OPENAI_MODEL || 'gpt-4o';
+
+  let prompt = BASE_PROMPT;
+  if (examples && examples.length) {
+    prompt += "\n\nVoici des exemples de la logique de renommage souhaitée par l'utilisateur (prends-les comme référence absolue):\n";
+    examples.forEach(ex => {
+      prompt += `- Fichier: ${ex.original} -> Résultat attendu: ${ex.renamed}\n`;
+    });
+  }
 
   const response = await client.chat.completions.create({
     model,
@@ -80,7 +99,7 @@ async function analyzeWithVision(pngBuffer) {
       {
         role: 'user',
         content: [
-          { type: 'text', text: PROMPT },
+          { type: 'text', text: prompt },
           { type: 'image_url', image_url: { url: `data:image/png;base64,${base64}`, detail: 'high' } },
         ],
       },
@@ -100,19 +119,23 @@ export default async function handler(request) {
 
   try {
     const { files } = await request.json();
+    const examples = await getLearningExamples();
 
     const results = await Promise.all(
       files.map(async ({ name, data }) => {
         try {
           const pdfBuffer = Buffer.from(data, 'base64');
 
+          // 1. PDF -> PNG
           const pngBuffer = await pdfToPng(pdfBuffer);
           const preview = pngBuffer.toString('base64');
 
-          const extracted = await analyzeWithVision(pngBuffer);
+          // 2. Vision Analysis (with learning examples)
+          const extracted = await analyzeWithVision(pngBuffer, examples);
           
           if (!extracted) throw new Error("L'IA n'a retourné aucune donnée.");
 
+          // 3. 2026 Naming
           const vendorName = canonicalizeVendor(extracted.vendor, name, '');
           const naming = build2026Filename({
             date: extracted.date || 'YY.MM.DD',

@@ -1,10 +1,10 @@
-[build]
+﻿[build]
   publish = "public"
   functions = "netlify/functions"
 
 [functions]
   node_bundler = "esbuild"
-  included_files = ["data/vendors.json", "src/**"]
+  included_files = ["data/vendors.json"]
 
 [functions."rename"]
   timeout = 26
@@ -23,6 +23,16 @@
 [[redirects]]
   from = "/api/vendors/*"
   to   = "/.netlify/functions/vendors"
+  status = 200
+
+[[redirects]]
+  from = "/api/learning"
+  to   = "/.netlify/functions/learning"
+  status = 200
+
+[[redirects]]
+  from = "/api/learning/*"
+  to   = "/.netlify/functions/learning"
   status = 200
 
 [[redirects]]
